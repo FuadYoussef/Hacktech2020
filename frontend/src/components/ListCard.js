@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 
+/* Hard coded values, eventually we want to pull this from firebase */
 const contactList = [
   {
     name: 'Colin Peppler',
@@ -58,8 +59,6 @@ const CardHeader = styled.div`
   display: block;
 `
 
-/* the format for margin: top right bottom left */
-const lightGray = '#ecf0f1'
 
 /* Styles for the List component */
 const useStyles = makeStyles(theme => ({
@@ -71,27 +70,31 @@ const useStyles = makeStyles(theme => ({
 
 export default function ListCard(props) {
   const classes = useStyles();
-  const maxHeight = props.listType == "Contact" ? "45vh" : "50vh";
 
-    const ListBody = styled(Paper)`
-      background: ${lightGray};
-      padding: 16px 16px 16px 16px;
-      display: inline-flex;
-      align-items: flex-start;
-      flex-direction: column; 
-      max-width: 20vw;
-      max-height: ${maxHeight};
-      overflow: auto;
-  `
+  /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
+  const lightGray = '#ecf0f1'
+  const maxHeight = props.listType == "Contact" ? "45vh" : "50vh";
+  const ListBody = styled(Paper)`
+    background: ${lightGray};
+    padding: 16px 16px 16px 16px;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: column; 
+    max-width: 20vw;
+    max-height: ${maxHeight};
+    overflow: auto;
+`
 
   let listItems = null;
-  if (props.listType == "Contact") {
+  if (props.listType == "Contact") {              // Generate a ContactItem for each contact
     listItems = contactList.map(contact => (
       <ContactItem name={contact.name} avatar={contact.avatar}
-               lastMessage={contact.lastMessage}
-               lastMessageTimestamp={contact.lastMessageTimestamp}/>))
-  } else if (props.listType == "Event") {
-    listItems = eventList.map(event => (<EventItem name={event.name} description={event.description} date={event.date}/>))
+                   lastMessage={contact.lastMessage}
+                   lastMessageTimestamp={contact.lastMessageTimestamp}/>))
+  }
+  else if (props.listType == "Event") {           // Generate an EventItem for each event
+    listItems = eventList.map(event => (
+      <EventItem name={event.name} description={event.description} date={event.date}/>))
   }
 
   return (
@@ -114,6 +117,7 @@ export default function ListCard(props) {
 * The ContactItem contains the body of contact underneath the ContactList card in the sidebar.
 */
 
+/* the format for margin: top right bottom left */
 const ItemContainer = styled(Paper)`
   margin: 0 0 16px 0;
 `
@@ -164,14 +168,15 @@ function EventItem(props) {
     <ItemContainer elevation={2}>
       <ListItemText
         primary={
-            <Typography align="center" variant="h6" component="h6">
-              {props.name}
-            </Typography>
-          }
+          <Typography align="center" variant="h6" component="h6">
+            {props.name}
+          </Typography>
+        }
         secondary={
           <EventBody>
-            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2" component="body2">
-                {props.description}
+            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2"
+                        component="body2">
+              {props.description}
             </Typography>
             <Typography align="center" variant="subtitle1">
               {props.date}
