@@ -10,6 +10,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from './pages/LoginPage'
+import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={HomePage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/register" component={RegisterPage}/>
+          <Route path="/update" component={ProfilePage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
@@ -47,6 +49,11 @@ const HomePage = () => (
             Login
           </Button>
         </Link>
+        {/*<Link to="/update" underline="none">
+          <Button variant="contained" color="primary">
+            Update
+          </Button>
+        </Link>*/}
       </div>
     </header>
   </div>
