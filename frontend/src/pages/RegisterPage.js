@@ -11,13 +11,14 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-export default class LoginPage extends Component {
+export default class RegisterPage extends Component {
     render() {
         return(
-          <Wrapper>
+          <Wrapper className="base-container">
             <TextField id="outlined-basic" label="email" variant="outlined"/>
+            <TextField id="outlined-basic" label="username" variant="outlined"/>
             <TextField id="outlined-basic" label="password" variant="outlined"/>
-            <button type="button" id="btn">Login</button>
+            <button type="button" id="btn">Register</button>
           </Wrapper>
         )
     }
