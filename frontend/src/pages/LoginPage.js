@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { withRouter, Redirect } from "react-router";
 import app from "../base.js";
 import { AuthContext } from "../Auth.js";
-import SuccessPage from './SuccessPage';
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 
@@ -63,9 +62,9 @@ const Login = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
 
   /* Disabled for now */
-  // if (currentUser) {
-  //   return <Redirect to="/SuccessPage" />;
-  // }
+  if (currentUser) {
+    return <Redirect to="/dashboard" />;
+  }
 
   return (
     <Wrapper>

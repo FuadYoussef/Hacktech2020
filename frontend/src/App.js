@@ -12,6 +12,7 @@ import {
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
+import DashboardPage from "./pages/DashboardPage";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={HomePage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/register" component={RegisterPage}/>
+          <Route path="/dashboard" component={DashboardPage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
