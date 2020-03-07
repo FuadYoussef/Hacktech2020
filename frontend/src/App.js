@@ -33,7 +33,7 @@ const HomePage = () => (
             </p>
             <div>
                 <Button variant="contained" color="primary">
-                    Create a profile
+                    Register
                 </Button>
 
                 <Link to="/login" underline="none">
