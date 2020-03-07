@@ -11,6 +11,18 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
+
+const Button = styled.button`
+  display: inline-block;
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+  display: block;
+`;
+
 export default class RegisterPage extends Component {
     render() {
         return(
@@ -18,7 +30,7 @@ export default class RegisterPage extends Component {
             <TextField id="outlined-basic" label="email" variant="outlined"/>
             <TextField id="outlined-basic" label="username" variant="outlined"/>
             <TextField id="outlined-basic" label="password" variant="outlined"/>
-            <button type="button" id="btn">Register</button>
+            <Button as="a" href="/">Register</Button>
           </Wrapper>
         )
     }
