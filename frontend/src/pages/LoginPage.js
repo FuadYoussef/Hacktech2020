@@ -44,6 +44,7 @@ const LoginButton = styled.button`
 const Login = ({ history }) => {
   const handleLogin = useCallback(
     async event => {
+      console.log("handle login")
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
@@ -70,14 +71,13 @@ const Login = ({ history }) => {
     <Wrapper>
       <h1 style={{paddingBottom: '8px'}}> Login </h1>
       <LoginComponent onSubmit={handleLogin}>
-        <TextField id="outlined-basic" label="email" variant="outlined"/>
-        <TextField id="outlined-basic" label="password" variant="outlined"/>
+        <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>
+        <TextField name="password" label="password" id="outlined-basic" variant="outlined"/>
 
-        <Link to="/" underline="none">
-          <Button variant="contained" color="primary" type="submit">
-            Login
-          </Button>
-        </Link>
+        {/*TODO: redirect to a home page*/}
+        <Button variant="contained" color="primary" type="submit">
+          Login
+        </Button>
         <Link style={{fontSize: '12px'}} to="/"> Forgot your password? </Link>
 
         <div class="horizontal divider">
