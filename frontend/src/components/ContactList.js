@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 
 const contactList = [
@@ -36,16 +37,23 @@ const contactList = [
   },
 ]
 
+const CardHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  display: block;
+`
+
 /* the format for margin: top right bottom left */
 const lightGray = '#ecf0f1'
 const ListBody = styled(Paper)`
   background: ${lightGray};
-  padding: 16px 16px 16px 16px;
+  padding: 16px 8px 16px 16px;
   display: inline-flex;
+  flex-direction: column; 
   min-width: 22vw;
   max-height: 40vh;
   overflow: auto;
-  flex-direction: column; 
 `
 
 /* Styles for the List component */
@@ -61,9 +69,12 @@ export default function ContactList() {
 
   return (
     <ListBody square variant="outlined">
-      <div>
-        Messages
-      </div>
+      <CardHeader>
+        <Typography variant="h6" component="h6">
+          Messages
+        </Typography>
+      </CardHeader>
+
       <List className={classes.root}>
         {contactList.map(contact => (
           <Contact name={contact.name} avatar={contact.avatar} lastMessage={contact.lastMessage}
