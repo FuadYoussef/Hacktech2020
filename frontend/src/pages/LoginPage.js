@@ -61,7 +61,6 @@ const Login = ({ history }) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  /* Disabled for now */
   if (currentUser) {
     return <Redirect to="/dashboard" />;
   }

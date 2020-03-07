@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import Sidebar from "../components/Sidebar";
 
 export default class DashboardPage extends Component {
   render() {
     return(
       <div>
-        <h1>Hello World</h1>
+        <Sidebar/>
       </div>
     );
   }
