@@ -11,10 +11,12 @@ import {
 } from "react-router-dom";
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
+import {AuthProvider} from "./Auth"
 
 
 function App() {
   return (
+    <AuthProvider>
       <BrowserRouter >
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -22,9 +24,11 @@ function App() {
           <Route path="/register" component={RegisterPage} />
         </Switch>
       </BrowserRouter>
+    </AuthProvider>
 
   );
 }
+
 
 const HomePage = () => (
     <div className="App">
