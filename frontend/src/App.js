@@ -14,13 +14,12 @@ import LoginPage from './pages/LoginPage'
 
 function App() {
   return (
-      <BrowserRouter >
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={LoginPage} />
-        </Switch>
-      </BrowserRouter>
-
+    <BrowserRouter >
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
@@ -33,7 +32,7 @@ const HomePage = () => (
             </p>
             <div>
                 <Button variant="contained" color="primary">
-                    Register
+                  Register
                 </Button>
 
                 <Link to="/login" underline="none">
