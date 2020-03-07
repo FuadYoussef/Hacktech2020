@@ -9,21 +9,22 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import LoginPage from './pages/LoginPage'
 
 
 function App() {
   return (
       <BrowserRouter >
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/login" component={LoginPage} />
         </Switch>
       </BrowserRouter>
 
   );
 }
 
-const Home = () => (
+const HomePage = () => (
     <div className="App">
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -45,10 +46,5 @@ const Home = () => (
     </div>
 );
 
-const Login = () => (
-    <div>
-        <h1>Login</h1>
-    </div>
-);
 
 export default App;
