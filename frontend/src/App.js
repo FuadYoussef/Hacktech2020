@@ -10,6 +10,7 @@ import {
   Link
 } from "react-router-dom";
 import LoginPage from './pages/LoginPage'
+import RegisterPage from './pages/RegisterPage'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
         </Switch>
       </BrowserRouter>
 
@@ -32,9 +34,11 @@ const HomePage = () => (
                 Hello teammates
             </p>
             <div>
-                <Button variant="contained" color="primary">
-                    Register
-                </Button>
+                <Link to="/register">
+                    <Button variant="contained" color="primary">
+                        Register
+                    </Button>
+                </Link>
 
                 <Link to="/login" underline="none">
                     <Button variant="contained" color="primary">
