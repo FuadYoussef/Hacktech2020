@@ -20,6 +20,11 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
+  background-image: url(https://i.imgur.com/OFDbIno.png);
+  background-size: 60%;
+  background-position: initial;
+  background-repeat: no-repeat;
 `;
 
 const UpdateComponent = styled.form`
@@ -37,7 +42,7 @@ const ButtonContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center; 
-  height: 30vh;
+  height: 8vh;
 `;
 
 const LoginButton = styled.button`
@@ -159,19 +164,21 @@ const SearchProfile = ({ history }) => {
 
     return (
         <Wrapper>
+            <div className="reg">
             <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Who Would You Like to Meet? </h1>
 
             <UpdateComponent onSubmit={handleSearch}>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
                     <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
 
-                    <Select name="gender" options={genders} placeholder="Gender"/>
                 </div>
 
                 <div>
-                    <Select name="race" options={races} placeholder="Race"/>
+                <Select className="select" name="gender" options={genders} placeholder="Gender"/>
 
-                    <Select name = "religion" options={religions}/>
+                    <Select className="select" name="race" options={races} placeholder="Race"/>
+
+                    <Select className="select" name = "religion" options={religions}/>
 
                     <ButtonContainer>
                         <Button variant="contained" color="primary" type="submit">
@@ -184,7 +191,7 @@ const SearchProfile = ({ history }) => {
                     <ExitToAppIcon/>
                 </IconButton>
             </UpdateComponent>
-
+            </div>
         </Wrapper>
     );
 };

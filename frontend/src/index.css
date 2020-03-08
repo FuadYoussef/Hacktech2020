@@ -122,3 +122,25 @@ h1 {
 .reg {
   margin-left: 50%;
 }
+
+
+.select {
+  padding: 8px !important;
+    box-shadow: 0px 4px 0px #c3c3c3;
+    border-radius: 5px !important;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  margin-top: 20px !important;
+}
+
+.input-text {
+  margin-right: 10px !important;
+}

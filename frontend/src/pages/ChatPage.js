@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React, {Component, useContext} from 'react';
 import Form from './Form.js';
 import "firebase/auth";
 import "firebase/database";
 import app from "../base.js";
+import firebase from "firebase";
 
 class ChatPage extends Component {
-  constructor(props) {
+constructor(props) {
     super(props);
 
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log(user.username)
+    } else {
+      console.log('not signed in')
+    }
+  });
 
     this.state = {
       displayName: 'colin',
