@@ -13,7 +13,6 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
-import LoginAndRegister from "./pages/LoginAndRegisterPage"
 import ProfilePage from "./pages/ProfilePage"
 
 
@@ -25,7 +24,6 @@ function App() {
           <Route exact path="/" component={RegisterPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
-          <Route path="/loginandregister" component={LoginAndRegister}/>
           <Route path="/profile" component = {ProfilePage}/>
         </Switch>
       </BrowserRouter>
