@@ -1,9 +1,9 @@
-import React, { Component, useCallback, useContext } from 'react';
+import React, {Component, useCallback, useContext} from 'react';
 import TextField from '@material-ui/core/TextField'
 import styled from "styled-components";
-import { withRouter, Redirect } from "react-router";
+import {withRouter, Redirect} from "react-router";
 import app from "../base.js";
-import { AuthContext } from "../Auth.js";
+import {AuthContext} from "../Auth.js";
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 
@@ -40,12 +40,12 @@ const LoginButton = styled.button`
   display: block;
 `;
 
-const Login = ({ history }) => {
+const Login = ({history}) => {
   const handleLogin = useCallback(
     async event => {
       console.log("handle login")
       event.preventDefault();
-      const { email, password } = event.target.elements;
+      const {email, password} = event.target.elements;
       try {
         await app
           .auth()
@@ -59,7 +59,7 @@ const Login = ({ history }) => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
+  const {currentUser} = useContext(AuthContext);
 
   if (currentUser) {
     return <Redirect push to="/dashboard"/>;
@@ -68,8 +68,8 @@ const Login = ({ history }) => {
   return (
     <Wrapper>
       <div>
-        <Button href="/login">Login</Button>
-        <Button href="/">Register</Button>
+        <Button href="/login"> Login </Button>
+        <Button href="/"> Register </Button>
       </div>
       <h1 style={{paddingBottom: '8px'}}> Login </h1>
       <LoginComponent onSubmit={handleLogin}>
@@ -83,7 +83,7 @@ const Login = ({ history }) => {
         <Link style={{fontSize: '12px'}} to="/"> Forgot your password? </Link>
 
         <div class="horizontal divider">
-          </div>
+        </div>
       </LoginComponent>
     </Wrapper>
   );
