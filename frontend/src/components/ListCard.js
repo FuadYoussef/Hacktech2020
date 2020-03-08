@@ -68,12 +68,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function ListCard(props) {
   const classes = useStyles();
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
   const lightGray = '#ecf0f1'
-  const maxHeight = props.listType == "Contact" ? "45vh" : "50vh";
+  const maxHeight = props.listType == "Contact" ? "45%" : "50%";
   const ListBody = styled(Paper)`
     background: ${lightGray};
     padding: 16px 16px 16px 16px;
