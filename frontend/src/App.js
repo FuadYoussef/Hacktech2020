@@ -26,13 +26,12 @@ function App() {
           <Route path="/login" component={LoginPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/loginandregister" component={LoginAndRegister}/>
-          <Route path="/profile" component={ProfilePage}/>
+          <Route path="/profile" component = {ProfilePage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
   );
 }
-
 
 // const HomePage = () => (
 //   <div className="App">

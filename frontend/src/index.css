@@ -27,7 +27,7 @@ h6 {
 }
 
 .Event {
-  height: 100%;
+  overflow: auto;
   background-color: #4E2B8B;
 }
 

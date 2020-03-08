@@ -3,6 +3,11 @@ import '../index.css';
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
 import MenuBar from "../components/MenuBar"
+import RegisterPage from "./RegisterPage";
+import {BrowserRouter} from "react-router-dom";
+import Switch from "@material-ui/core/Switch";
+import Route from "react-router-dom/es/Route";
+import ChatPage from "./ChatPage";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -10,7 +15,7 @@ const DashboardContainer = styled.div`
 
 const RightSide = styled.div`
   flex-grow: 1;
-  background: #FFFFFF;
+  background: white;
   max-height: 100vh;
 `
 
@@ -21,10 +26,16 @@ class DashboardPage extends Component {
         <SideBar/>
         <RightSide>
           <MenuBar history={this.props.history}/>
+          <Route path="/dashboard/chat" component={ChatPage}/>
+          <Route path="/dashboard/posts" component={PostPage}/>
         </RightSide>
       </DashboardContainer>
     );
   }
 }
+
+const PostPage = () => (
+  <h1>hizz</h1>
+)
 
 export default DashboardPage;
