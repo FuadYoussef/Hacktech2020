@@ -105,7 +105,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 360,
   },
   masonry: {
-    columnCount: 4,
+    columnCount: 3,
     columnGap: '1em',
     overflow: 'hidden',
     padding: '10px',
@@ -116,7 +116,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     background: 'linear-gradient(#fe7379, #f5529f)',
     minHeight: '300px',
-    width: '300px',
+    width: '350px',
     borderRadius: '10px',
     marginLeft: '50px',
     marginTop: '30px',
