@@ -19,9 +19,10 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-image: url(https://colorlib.com/preview/theme/taxa/img/banner/home-banner.png);
-  background-size: cover;
-  background-position: center;
+  background-image: url(https://i.imgur.com/OFDbIno.png);
+  background-size: 60%;
+  background-position: initial;
+  background-repeat: no-repeat;
 `;
 
 const LoginComponent = styled.form`
@@ -62,6 +63,7 @@ const SignUp = ({ history }) => {
 
   return (
     <Wrapper>
+      <div className="reg">
       <div>
         <Button variant="outlined" color="primary" href="/login">Login</Button>
         <Button variant="outlined" color="primary" href="/">Register</Button>
@@ -73,6 +75,7 @@ const SignUp = ({ history }) => {
         <Button variant="contained" color="primary" type="submit">Register</Button>
         <Link style={{fontSize: '12px'}} to="/login"> Already have an account? </Link>
       </LoginComponent>
+      </div>
     </Wrapper>
   );
 };

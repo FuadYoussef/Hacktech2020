@@ -100,7 +100,7 @@ h6 {
 
 h1 {
   text-transform: uppercase;
-  color: #FFF;
+  color: #4e4e4e;
 }
 
 .MuiButton-containedPrimary {
@@ -110,4 +110,15 @@ h1 {
   box-shadow: none !important;
   width: 200px !important;
   border-radius: 50px !important;
+}
+
+
+.MuiInputBase-input {
+  background: #fff!important;
+  box-shadow: 0 3px 0px #c3c3c3 !important;
+  border-radius: 5px !important;
+}
+
+.reg {
+  margin-left: 50%;
 }
