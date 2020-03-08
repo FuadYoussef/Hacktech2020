@@ -1,5 +1,8 @@
+html{min-height:100%;position:relative;}
+
 body {
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -57,11 +60,11 @@ h6 {
 
 
 .Event-text {
-  background: linear-gradient(#ff3a3aeb, #ff2e2ee0), url(https://i.imgur.com/senEhn5.jpg) center !important;
+  background: linear-gradient(#fc8989d9, #ff766cf2), url(https://i.imgur.com/senEhn5.jpg) center !important;
   background-size: contain;
-  /*color: #fff !important;*/
-  /*box-shadow: none !important;*/
-  /*border: none !important;*/
+  color: #fff !important;
+  /* box-shadow: none !important; */
+  border: none !important;
 }
 
 .MuiTypography-colorTextSecondary {
@@ -75,4 +78,13 @@ h6 {
   width: 80%;
   flex-shrink: 0;
   background-color: rgba(16, 16, 16, 0.12);
+}
+
+.iOOVlW {
+  display: -webkit-box !important;
+}
+
+.pushed {
+  height: 0.1px;
+  width: 20vw;
 }

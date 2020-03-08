@@ -7,15 +7,18 @@ const SidebarContainer = styled.div `
   flex-direction: column;
   width: 20vw;
   height: 100vh;
+  position: fixed;
   background: linear-gradient(#0781FF, #6946CB);
 `
 
 export default function SideBar(props) {
     return (
-        // TODO: idk why SidebarContainer doesnt show color of the ListCard components
+        <div>
+        <div className="pushed"></div>
         <SidebarContainer>
             <ListCard listType = "Contact" headerTitle = "Messages" className='Contact' history={props.history}/>
             <ListCard listType = "Event" headerTitle = "Events" className='Events'/>
         </SidebarContainer>
+        </div>
     );
 }

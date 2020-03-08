@@ -9,7 +9,7 @@ export default function PostPage() {
       <div className={classes.masonry}>
         <div className={classes.card} style={{background: 'linear-gradient(#1de2db, #5b7de8)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/035PVSG.jpg)'}}></div>
-          <p className="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
+          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
             accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
             dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
@@ -25,7 +25,7 @@ export default function PostPage() {
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam</p>
           <a href="#">
-            <div className="card-btn">READ MORE</div>
+            <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
         <div className={classes.card} style={{background: 'linear-gradient(#fcde8b, #ff716a)'}}>
@@ -34,12 +34,12 @@ export default function PostPage() {
             tempor invidunt
           </p>
           <a href="#">
-            <div className={classes.cardbtn}>READ MORE</div>
+            <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
         <div className={classes.card} style={{background: 'linear-gradient(#ff4493, #e63784)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/JtZSmv9.jpg)'}}></div>
-          <p className={classes.cardTex}t>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
             tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
             duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
@@ -65,7 +65,7 @@ export default function PostPage() {
         </div>
         <div className={classes.card} style={{background: "linear-gradient(#ff839d, #f50b9a)"}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/Asb7a1h.jpg)'}}></div>
-          <p className={classes.cardTex}t>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
+          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
             accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
             dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
@@ -73,7 +73,27 @@ export default function PostPage() {
             <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
-
+        <div className={classes.card}>
+          <div className={classes.cardAvatar}></div>
+          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
+            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
+            dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+            invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+          <a href="#">
+            <div className={classes.cardBtn}>READ MORE</div>
+          </a>
+        </div>
+        <div className={classes.card} style={{background: 'linear-gradient(#ff4493, #e63784)'}}>
+          <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/JtZSmv9.jpg)'}}></div>
+          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+            duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+            dolore magna aliquyam erat, sed diam</p>
+          <a href="#">
+            <div className={classes.cardBtn}>READ MORE</div>
+          </a>
+        </div>
       </div>
     </div>
   )
@@ -88,6 +108,7 @@ const useStyles = makeStyles(theme => ({
     columnCount: 4,
     columnGap: '1em',
     overflow: 'hidden',
+    padding: '40px',
   },
   card: {
     display: 'inline-table',
@@ -133,4 +154,3 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '30px',
 }
 }))
-
