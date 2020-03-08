@@ -9,6 +9,7 @@ import Switch from "@material-ui/core/Switch";
 import Route from "react-router-dom/es/Route";
 import ChatPage from "./ChatPage";
 import PostPage from "./PostPage";
+import AddPost from "./AddPost"
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -29,6 +30,7 @@ class DashboardPage extends Component {
           <MenuBar history={this.props.history}/>
           <Route path="/dashboard/chat" component={ChatPage}/>
           <Route path="/dashboard/posts" component={PostPage}/>
+          <Route path="/dashboard/addpost" component={AddPost}/>
         </RightSide>
       </DashboardContainer>
     );
