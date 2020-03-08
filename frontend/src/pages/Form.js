@@ -13,9 +13,20 @@ export default class Form extends Component {
       message: '',
       list: [],
     };
-    this.messageRef = app.database().ref().child('messages');
-    this.listenMessages();
+    firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var conID = app.auth().currentUser.uid;
+      this.messageRef = app.database().ref().child('conversations/'+conID+'messages');
+      this.listenMessages();
+      console.log(firebase.auth.currentUser.uid);
+    } else {
+      console.log("failure");
+    }
+  });
   }
+
+  
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.user) {
       this.setState({'userName': nextProps.user.displayName});
