@@ -81,9 +81,11 @@ const UpdateProfile = ({ history }) => {
       <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Create Your Profile </h1>
   
       <UpdateComponent onSubmit={handleSignUp}>
-          <TextField className="input-text" name="name" label="name" id="outlined-basic" variant="outlined"/>
-          <TextField className="input-text" name="username" label="username" id="outlined-basic" variant="outlined"/>
-          <TextField className="input-text" style={{width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
+          <TextField className="input-text" style={{width: '300px'}} id="outlined-basic" name="email" label="email"  variant="outlined"/>
+          <TextField className="input-text" style={{width: '300px'}} id="outlined-basic" name="password" label="password"  variant="outlined"/>
+          <TextField className="input-text" style={{paddingTop:"15px", width: '280px'}} name="name" label="name" id="outlined-basic" variant="outlined"/>
+          <TextField className="input-text" style={{paddingTop:"15px", width: '230px'}} name="username" label="username" id="outlined-basic" variant="outlined"/>
+          <TextField className="input-text" style={{paddingTop:"15px", width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
           <Select className="select" name="gender" options={genders} placeholder="Gender"/>
 
           <Select className="select" name="race" options={races} placeholder="Race"/>
