@@ -10,6 +10,7 @@ import SuccessPage from './SuccessPage';
 import Button from "@material-ui/core/Button";
 import img from "./backgroundImage1.jpg";
 import {Link} from 'react-router-dom'
+import "../index.css"
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +19,10 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-image: url(${img});
+  background-image: url(https://i.imgur.com/OFDbIno.png);
+  background-size: 60%;
+  background-position: initial;
+  background-repeat: no-repeat;
 `;
 
 const LoginComponent = styled.form`
@@ -59,6 +63,7 @@ const SignUp = ({ history }) => {
 
   return (
     <Wrapper>
+      <div className="reg">
       <div>
         <Button variant="outlined" color="primary" href="/login">Login</Button>
         <Button variant="outlined" color="primary" href="/">Register</Button>
@@ -70,6 +75,7 @@ const SignUp = ({ history }) => {
         <Button variant="contained" color="primary" type="submit">Register</Button>
         <Link style={{fontSize: '12px'}} to="/login"> Already have an account? </Link>
       </LoginComponent>
+      </div>
     </Wrapper>
   );
 };

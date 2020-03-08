@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import {Redirect} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 
 /* Hard coded values, eventually we want to pull this from firebase */
@@ -89,6 +90,7 @@ export default function ListCard(props) {
     flex-direction: column; 
     min-height: 100%;
     overflow: auto;
+    min-width: 82%;
 `
 
   const onMarkerClick = (userName) => {
@@ -185,6 +187,7 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
+      <Button variant="outlined" color="secondary" href="/dashboard/mapview">Location</Button>
       <ItemContainer className="Event-text" elevation={3} boxShadow={3}>
         <ListItemText
           primary={
