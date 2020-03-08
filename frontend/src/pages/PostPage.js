@@ -108,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     columnCount: 4,
     columnGap: '1em',
     overflow: 'hidden',
-    padding: '40px',
+    padding: '10px',
   },
   card: {
     display: 'inline-table',
