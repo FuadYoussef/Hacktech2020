@@ -11,12 +11,16 @@ import MapView from "./MapView"
 
 const DashboardContainer = styled.div`
   display: flex;
+  background: transparent;
+  max-height: 100vh;
+  overflow: hidden;
 `
 
 const RightSide = styled.div`
   flex-grow: 1;
-  background: white;
+  background: transparent;
   max-height: 100vh;
+  overflow: hidden;
 `
 
 class DashboardPage extends Component {
