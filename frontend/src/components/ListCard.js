@@ -9,8 +9,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import {Redirect} from "react-router-dom";
-import Button from "@material-ui/core/Button";
 
 
 /* Hard coded values, eventually we want to pull this from firebase */
@@ -31,14 +29,14 @@ const contactList = [
   },
   {
     name: 'Barrack Obama',
-    userName: 'bobama',
+    userName: 'lucy',
     avatar: 'https://i.imgur.com/eYRxRnD.png',
     lastMessage: 'I HAVE CORONAVIRUS',
     lastMessageTimestamp: '3 mo'
   },
   {
     name: 'Hannah Montana',
-    userName: 'hannahbannana',
+    userName: 'fuad',
     avatar: 'https://i.imgur.com/EcyyVVI.png',
     lastMessage: 'See you in 20!',
     lastMessageTimestamp: '1 yr'
@@ -71,7 +69,7 @@ const CardHeader = styled.div`
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: '25vw',
   },
 }));
 
@@ -80,7 +78,7 @@ export default function ListCard(props) {
   const classes = useStyles();
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
-  const minHeight = props.listType == "Contact" ? "45%" : "55%";
+  const minHeight = props.listType == "Contact" ? "40%" : "55%";
   const ListBody = styled.div`
     color: #fff;
     padding: 16px 16px 0 16px;
@@ -88,9 +86,8 @@ export default function ListCard(props) {
     align-items: flex-start;
     border: None;
     flex-direction: column; 
-    min-height: 100%;
-    overflow: auto;
-    min-width: 82%;
+    min-height: ${minHeight};
+    overflow: scroll;
 `
 
   const onMarkerClick = (userName) => {

@@ -15,6 +15,8 @@ import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
 import ProfilePage from "./pages/ProfilePage"
 import SearchPage from "./pages/SearchParams"
+import NewLoginPage from "./pages/NewLoginPage.js"
+import CreateProfile from "./pages/CreateProfile.js"
 
 
 function App() {
@@ -22,11 +24,13 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={RegisterPage}/>
+          <Route exact path="/" component={NewLoginPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/profile" component = {ProfilePage}/>
           <Route path="/search" component = {SearchPage}/>
+          {/* <Route path="/newlogin" component = {NewLoginPage}/> */}
+          <Route path="/createprofile" component = {CreateProfile}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>

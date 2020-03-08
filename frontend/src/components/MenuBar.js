@@ -9,6 +9,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import CollectionsIcon from '@material-ui/icons/Collections';
+import RoomIcon from '@material-ui/icons/Room';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -46,6 +47,10 @@ export default function MenuBar(props) {
 
           <IconButton color="inherit" onClick={() => props.history.push('/dashboard/addpost')}>
             <PostAddIcon/>
+          </IconButton>
+
+          <IconButton color="inherit" onClick={() => props.history.push('/dashboard/MapView')}>
+            <RoomIcon/>
           </IconButton>
 
           <IconButton color="inherit" onClick={() => props.history.push('/')}>
