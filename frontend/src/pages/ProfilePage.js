@@ -84,7 +84,7 @@ const UpdateProfile = ({ history }) => {
         	name: name.value,
         	age: age.value,
         	gender: gender.value,
-        	// race: race.value,
+            race: race.value,
         	religion: religion.value
       	});
       } catch (error) {
@@ -153,7 +153,7 @@ const races = [
         </div>
 
         <div>
-          <ReactMultiSelectCheckboxes name = "race" options={races} />
+            <Select name="race" options={races} placeholder="Race"/>
 
           <Select name = "religion" options={religions}/>
 
