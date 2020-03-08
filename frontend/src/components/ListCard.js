@@ -95,8 +95,8 @@ export default function ListCard(props) {
 
   const onMarkerClick = (userName) => {
     // A hack so userName is properly sent
-    console.log('fullsend:', userName)
     props.history.push({pathname: "/dashboard/chat/" + userName, state: { detail: userName }})
+    window.location.reload();     /* another hack so we get the latest messsages */
   };
 
   let listItems = null;

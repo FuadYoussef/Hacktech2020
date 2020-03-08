@@ -20,10 +20,12 @@ export default class Form extends Component {
       if (user) {
         // var conID = app.auth().currentUser.uid;
         /* We need to make sure to update this whenever we clink on a new link */
-        var conID = letterFrequency(this.state.userName, this.state.targetUserName)
-        console.log('changed convoID', conID)
-        this.state.messageRef = app.database().ref().child('conversations/'+conID+'/messages');
-        this.state.authenticated = true
+        let conID = letterFrequency(this.state.userName, this.state.targetUserName)
+        this.setState({
+          messageRef : app.database().ref().child('conversations/'+conID+'/messages'),
+          authenticated : true,
+        })
+        // console.log(m)
         this.listenMessages();
       } else {
         console.log("failure");
@@ -33,14 +35,18 @@ export default class Form extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
       if (prevProps.targetUserName !== this.props.targetUserName) {
+        this.state.targetUserName = this.props.targetUserName;
         /* We need to make sure to update this whenever we clink on a new link */
-        var conID = letterFrequency(this.state.userName, this.state.targetUserName)
-        console.log('changed convoID', conID)
+        let conID = letterFrequency(this.state.userName, this.state.targetUserName)
         this.setState({
           messageRef: app.database().ref().child('conversations/' + conID + '/messages'),
           list: []
         })
+
         this.listenMessages()
+      }
+      else {
+        console.log("another updated")
       }
   }
 
@@ -58,23 +64,27 @@ export default class Form extends Component {
       this.setState({ message: '' });
     }
   }
+
   handleKeyPress(event) {
     if (event.key !== 'Enter') return;
     this.handleSend();
   }
+
   listenMessages() {
-    console.log('LISTEN MESSAGES')
-    console.log(this.state.messageRef)
     this.state.messageRef
       .limitToLast(10)
       .on('value', message => {
         if (message.exists()) {
+          console.log(message.val())
+          console.log("we got some messages")
           this.setState({
             list: Object.values(message.exportVal()),
           });
         }
-      });
+      })
+    console.log('---')
   }
+
   render() {
     return (
       <div className="form">
@@ -104,10 +114,9 @@ export default class Form extends Component {
   }
 }
 
-/* HACKY code to normalize our conversations */
+/* HACKY code to normalize our conversation id */
 function letterFrequency(text1, text2){
   let text = text1 + text2
-  console.log(text1, text2, text)
   text.replace(/[\W_]+/g," ");
   var count = {};
   var ch = 'a'

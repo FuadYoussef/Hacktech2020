@@ -10,7 +10,7 @@ class ChatPage extends Component {
 
 
     this.state = {
-      displayName: 'leesin',
+      displayName: 'colin',
       targetUserName: this.props.location.state.detail.replace(':', ''),
     }
   }
