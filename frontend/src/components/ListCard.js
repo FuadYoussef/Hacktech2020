@@ -73,16 +73,18 @@ export default function ListCard(props) {
   const classes = useStyles();
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
-  const lightGray = '#ecf0f1'
-  const maxHeight = props.listType == "Contact" ? "45%" : "50%";
+  const sidebarBackground = props.listType == "Contact" ? 'linear-gradient(#0781FF, #6946CB)' : '#4E2B8B';
+  const minHeight = props.listType == "Contact" ? "45%" : "55%";
   const ListBody = styled(Paper)`
-    background: ${lightGray};
+    background: ${sidebarBackground};
+    color: #fff;
     padding: 16px 16px 16px 16px;
     display: inline-flex;
     align-items: flex-start;
+    border: None;
     flex-direction: column; 
-    max-width: 20vw;
-    max-height: ${maxHeight};
+    width: 92%;
+    min-height: 100%;
     overflow: auto;
 `
 
@@ -99,9 +101,10 @@ export default function ListCard(props) {
   }
 
   return (
-    <ListBody square variant="outlined">
+    <div className={props.listType}>
+    <ListBody square variant="outlined" >
       <CardHeader>
-        <Typography variant="h6" component="h6">
+        <Typography variant="h5" component="h6">
           {props.headerTitle}
         </Typography>
       </CardHeader>
@@ -110,6 +113,7 @@ export default function ListCard(props) {
         {listItems}
       </List>
     </ListBody>
+    </div>
   )
 }
 
@@ -137,6 +141,7 @@ const Timestamp = styled(ListItemText)`
 
 function ContactItem(props) {
   return (
+    <div className="Contact-list">
     <ItemContainer elevation={2}>
       <ListItem alignItems="flex-start">
 
@@ -154,6 +159,7 @@ function ContactItem(props) {
         </ContactItemBody>
       </ListItem>
     </ItemContainer>
+    </div>
   )
 }
 
@@ -166,6 +172,7 @@ const EventBody = styled.div``
 
 function EventItem(props) {
   return (
+    <div className="Events-list">
     <ItemContainer elevation={2}>
       <ListItemText
         primary={
@@ -187,6 +194,7 @@ function EventItem(props) {
       />
 
     </ItemContainer>
+    </div>
   )
 }
 
