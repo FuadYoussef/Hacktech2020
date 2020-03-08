@@ -6,7 +6,7 @@ export default function PostPage() {
 
   return(
     <div>
-      <div className={classes.masonry+' posts'}>
+      <div className={classes.masonry}>
         <div>
         <div className={classes.card} style={{background: 'linear-gradient(#1de2db, #5b7de8)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/035PVSG.jpg)'}}></div>
@@ -94,7 +94,8 @@ const useStyles = makeStyles(theme => ({
     columnGap: '1em',
     padding: '32px 32px 0 32px',
     background: 'transparent',
-    maxHeight: '90vh',
+    maxHeight: '80vh',
+    maxWidth: '75vw',
     display: 'flex',
     flexDirection: 'row',
   },
