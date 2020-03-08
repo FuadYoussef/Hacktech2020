@@ -30,7 +30,6 @@ h6 {
 }
 
 .Event {
-  overflow: scroll;
   background-color: transparent;
 }
 
@@ -180,4 +179,5 @@ a {
   padding: 10px 40px 10px 40px !important;
   background-color: #836dff !important;
   border-radius: 50px !important;
+  color: #fff !important;
 }

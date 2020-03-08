@@ -5,7 +5,7 @@ export default function PostPage() {
   const classes = useStyles();
 
   return(
-    <div style={{overflow: 'scroll'}}>
+    <div>
       <div className={classes.masonry}>
         <div>
         <div className={classes.card} style={{background: 'linear-gradient(#1de2db, #5b7de8)'}}>
@@ -97,7 +97,6 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '90vh',
     display: 'flex',
     flexDirection: 'row',
-    overflow: 'scroll',
   },
   card: {
     display: 'inline-table',
