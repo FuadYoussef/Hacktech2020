@@ -14,6 +14,7 @@ import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
 import ProfilePage from "./pages/ProfilePage"
+import SearchPage from "./pages/SearchParams"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" component={LoginPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/profile" component = {ProfilePage}/>
+          <Route path="/search" component = {SearchPage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
