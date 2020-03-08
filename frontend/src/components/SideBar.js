@@ -5,7 +5,7 @@ import ListCard from "./ListCard";
 const SidebarContainer = styled.div `
   display: flex;
   flex-direction: column;
-  max-width: 20vw;
+  width: 20vw;
   height: 100vh;
   background: linear-gradient(#0781FF, #6946CB);
 `
