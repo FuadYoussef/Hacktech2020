@@ -37,10 +37,6 @@ export default function MenuBar(props) {
             <DashboardIcon/>
           </IconButton>
 
-          <IconButton color="inherit" onClick={() => props.history.push('/dashboard/posts')}>
-            <CollectionsIcon/>
-          </IconButton>
-
           <IconButton color="inherit" onClick={() => props.history.push('/dashboard/addpost')}>
             <PostAddIcon/>
           </IconButton>

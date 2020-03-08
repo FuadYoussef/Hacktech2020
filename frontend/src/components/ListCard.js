@@ -88,11 +88,6 @@ export default function ListCard(props) {
     flex-direction: column; 
     min-height: ${minHeight};
     min-width: 90%;
-    overflow: scroll;
-    ::-webkit-scrollbar {
-      display: none;
-    }
-}
 `
 
   const onMarkerClick = (userName) => {
