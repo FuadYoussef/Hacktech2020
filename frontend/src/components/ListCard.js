@@ -81,7 +81,6 @@ export default function ListCard(props) {
     align-items: flex-start;
     border: None;
     flex-direction: column; 
-    width: 92%;
     min-height: 100%;
     overflow: auto;
 `
@@ -140,23 +139,23 @@ const Timestamp = styled(ListItemText)`
 function ContactItem(props) {
   return (
     <div className="Contact-list">
-    <ItemContainer elevation={2}>
-      <ListItem alignItems="flex-start">
+      <ItemContainer elevation={2}>
+        <ListItem alignItems="flex-start">
 
-        <ListItemAvatar>
-          <Avatar alt={props.name} src={props.avatar}/>
-        </ListItemAvatar>
+          <ListItemAvatar>
+            <Avatar alt={props.name} src={props.avatar}/>
+          </ListItemAvatar>
 
-        <ContactItemBody>
-          <ListItemText
-            primary={props.name}
-            secondary={props.lastMessage}
-          />
+          <ContactItemBody>
+            <ListItemText
+              primary={props.name}
+              secondary={props.lastMessage}
+            />
 
-          <Timestamp secondary={props.lastMessageTimestamp}/>
-        </ContactItemBody>
-      </ListItem>
-    </ItemContainer>
+            <Timestamp secondary={props.lastMessageTimestamp}/>
+          </ContactItemBody>
+        </ListItem>
+      </ItemContainer>
     </div>
   )
 }
@@ -171,26 +170,25 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
-    <ItemContainer  className="Event-text" elevation={2}>
-      <ListItemText
-        primary={
-          <Typography align="center" variant="h6" component="h6">
-            {props.name}
-          </Typography>
-        }
-        secondary={
-          <EventBody>
-            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2">
-              {props.description}
+      <ItemContainer  className="Event-text" elevation={2}>
+        <ListItemText
+          primary={
+            <Typography align="center" variant="h6" component="h6">
+              {props.name}
             </Typography>
-            <Typography align="center" variant="subtitle1">
-              {props.date}
-            </Typography>
-          </EventBody>
-        }
-      />
-
-    </ItemContainer>
+          }
+          secondary={
+            <EventBody>
+              <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2">
+                {props.description}
+              </Typography>
+              <Typography align="center" variant="subtitle1">
+                {props.date}
+              </Typography>
+            </EventBody>
+          }
+        />
+      </ItemContainer>
     </div>
   )
 }

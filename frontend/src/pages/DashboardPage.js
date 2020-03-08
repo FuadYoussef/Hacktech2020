@@ -8,6 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 import Switch from "@material-ui/core/Switch";
 import Route from "react-router-dom/es/Route";
 import ChatPage from "./ChatPage";
+import PostPage from "./PostPage";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -33,9 +34,5 @@ class DashboardPage extends Component {
     );
   }
 }
-
-const PostPage = () => (
-  <h1>hizz</h1>
-)
 
 export default DashboardPage;
