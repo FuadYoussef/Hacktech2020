@@ -7,14 +7,15 @@ const SidebarContainer = styled.div `
   flex-direction: column;
   max-width: 20vw;
   height: 100vh;
+  background: linear-gradient(#0781FF, #6946CB);
 `
 
 export default function SideBar() {
     return (
         // TODO: idk why SidebarContainer doesnt show color of the ListCard components
-        <div style={{ display: 'flex', flexDirection: 'column', background: 'yellow', maxWidth: '20vw', height: '100vh' }} >
+        <SidebarContainer>
             <ListCard listType = "Contact" headerTitle = "Messages" className='Contact'/>
             <ListCard listType = "Event" headerTitle = "Events" className='Events'/>
-        </div>
+        </SidebarContainer>
     );
 }

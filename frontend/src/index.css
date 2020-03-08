@@ -18,22 +18,22 @@ h6 {
 
 .Contact {
   color: #fff;
-  background: linear-gradient(#0781FF, #6946CB);
+  background-color: transparent;
 }
 
 .Contact .MuiPaper-outlined {
   color: #fff;
-  background: linear-gradient(#0781FF, #6946CB);
+  background-color: transparent;
 }
 
 .Event {
   overflow: auto;
-  background-color: #4E2B8B;
+  background-color: transparent;
 }
 
 .Event .MuiPaper-outlined  {
   color: #fff;
-  background-color: #4E2B8B;
+  background-color: transparent;
 }
 
 .Contact-list {
@@ -56,9 +56,9 @@ h6 {
 .Event-text {
   background: linear-gradient(#ff3a3aeb, #ff2e2ee0), url(https://i.imgur.com/senEhn5.jpg) center !important;
   background-size: contain;
-  color: #fff !important;
-  box-shadow: none !important;
-  border: none !important;
+  /*color: #fff !important;*/
+  /*box-shadow: none !important;*/
+  /*border: none !important;*/
 }
 
 .MuiTypography-colorTextSecondary {

@@ -8,6 +8,8 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import { shadows } from '@material-ui/system';
 
 
 /* Hard coded values, eventually we want to pull this from firebase */
@@ -74,9 +76,9 @@ export default function ListCard(props) {
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
   const minHeight = props.listType == "Contact" ? "45%" : "55%";
-  const ListBody = styled(Paper)`
+  const ListBody = styled.div`
     color: #fff;
-    padding: 16px 16px 16px 16px;
+    padding: 16px 16px 0 16px;
     display: inline-flex;
     align-items: flex-start;
     border: None;
@@ -91,25 +93,25 @@ export default function ListCard(props) {
       <ContactItem name={contact.name} avatar={contact.avatar}
                    lastMessage={contact.lastMessage}
                    lastMessageTimestamp={contact.lastMessageTimestamp}/>))
-  }
-  else if (props.listType == "Event") {           // Generate an EventItem for each event
+  } else if (props.listType == "Event") {           // Generate an EventItem for each event
     listItems = eventList.map(event => (
       <EventItem name={event.name} description={event.description} date={event.date}/>))
   }
 
+
   return (
     <div className={props.listType}>
-    <ListBody square variant="outlined" >
-      <CardHeader>
-        <Typography variant="h5" component="h6">
-          {props.headerTitle}
-        </Typography>
-      </CardHeader>
+      <ListBody>
+        <CardHeader>
+          <Typography variant="h5" component="h6">
+            {props.headerTitle}
+          </Typography>
+        </CardHeader>
 
-      <List className={classes.root+' '+props.listType+'-inner'}>
-        {listItems}
-      </List>
-    </ListBody>
+        <List className={classes.root+' '+props.listType+'-inner'}>
+          {listItems}
+        </List>
+      </ListBody>
     </div>
   )
 }
@@ -139,7 +141,6 @@ const Timestamp = styled(ListItemText)`
 function ContactItem(props) {
   return (
     <div className="Contact-list">
-      <ItemContainer elevation={2}>
         <ListItem alignItems="flex-start">
 
           <ListItemAvatar>
@@ -155,7 +156,7 @@ function ContactItem(props) {
             <Timestamp secondary={props.lastMessageTimestamp}/>
           </ContactItemBody>
         </ListItem>
-      </ItemContainer>
+        <Divider component="li" />
     </div>
   )
 }
@@ -170,7 +171,7 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
-      <ItemContainer  className="Event-text" elevation={2}>
+      <ItemContainer className="Event-text" elevation={3} boxShadow={3}>
         <ListItemText
           primary={
             <Typography align="center" variant="h6" component="h6">

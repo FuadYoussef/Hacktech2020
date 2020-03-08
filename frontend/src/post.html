@@ -6,16 +6,23 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <style>
-        .card {
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-            background: linear-gradient(#FF7272, #C92B2B);
-            min-height: 500px;
-            width: 300px;
-            border-radius: 10px;
-            margin-left: 20px;
-            margin-top: 20px;
-        }
+
+    .masonry { 
+        column-count: 4;
+        column-gap: 1em;
+    }
+
+    .card {
+        display: inline-table;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        background: linear-gradient(#fe7379, #f5529f);
+        min-height: 300px;
+        width: 300px;
+        border-radius: 10px;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
 
     .card-avatar {
         display: inline-block;
@@ -24,8 +31,8 @@
         background-size: cover;
         background-position: center;
         margin-bottom: 20px;
-        height: 160px;
-        width: 160px;
+        height: 140px;
+        width: 140px;
         border: 8px solid #fff;
         border-radius: 25px;
         box-shadow: 10px 10px 5px #aaaaaa;
@@ -45,7 +52,7 @@
         display: inline-block;
         border: 4px solid #fff;
         border-radius: 25px;
-        width: 140px;
+        width: 130px;
         font-size: 14px;
         color: #fff;
         font-weight: 900;
@@ -54,10 +61,42 @@
     </style>
 </head>
 <body>
-    <div class="card">
-        <div class="card-avatar"></div>
+    <div class="masonry">
+    <div class="card" style="background: linear-gradient(#1de2db, #5b7de8)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/035PVSG.jpg');"></div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+        <a href="#"><div class="card-btn">READ MORE</div></a>
+    </div>
+    <div class="card" style="background: linear-gradient(#fcaa44, #fe428e)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/wv0RjG6.jpg');"></div>
         <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
         <a href="#"><div class="card-btn">READ MORE</div></a>
     </div>
+    <div class="card" style="background: linear-gradient(#fcde8b, #ff716a)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/CYXMhW4.jpg');"></div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
+        </p>
+        <a href="#"><div class="card-btn">READ MORE</div></a>
+    </div>
+    <div class="card" style="background: linear-gradient(#ff4493, #e63784)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/JtZSmv9.jpg');"></div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+        <a href="#"><div class="card-btn">READ MORE</div></a>
+    </div>
+    <div class="card" style="background: linear-gradient(#1fc2d6, #553181)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/VfL149L.jpg');"></div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
+        </p>
+        <a href="#"><div class="card-btn">READ MORE</div></a>
+    </div>
+    <div class="card" style="background: linear-gradient(#ff839d, #f50b9a)">
+        <div class="card-avatar" style="background-image: url('https://i.imgur.com/Asb7a1h.jpg');"></div>
+        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
+        <a href="#"><div class="card-btn">READ MORE</div></a>
+    </div>
+
+</div>
 </body>
 </html>

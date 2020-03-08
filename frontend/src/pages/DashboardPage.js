@@ -3,9 +3,6 @@ import '../index.css';
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
 import MenuBar from "../components/MenuBar"
-import RegisterPage from "./RegisterPage";
-import {BrowserRouter} from "react-router-dom";
-import Switch from "@material-ui/core/Switch";
 import Route from "react-router-dom/es/Route";
 import ChatPage from "./ChatPage";
 import PostPage from "./PostPage";
