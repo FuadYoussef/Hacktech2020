@@ -96,13 +96,15 @@ export default class Form extends Component {
             onChange={this.handleChange.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           />
-          <Button
-            className="form__button"
-            onClick={this.handleSend.bind(this)}
-          >
-            send
-          </Button>
         </div>
+
+        <Button
+          style={{width: '10%', marginLeft: '30px', marginTop: '-8px'}}
+          className="form__button"
+          onClick={this.handleSend.bind(this)}
+        >
+          send
+        </Button>
       </div>
     );
   }
