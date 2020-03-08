@@ -43,7 +43,7 @@ export default class Form extends Component {
       .limitToLast(10)
       .on('value', message => {
         this.setState({
-          list: Object.values(message.val()),
+          list: Object.values(message.exportVal()),
         });
       });
   }
