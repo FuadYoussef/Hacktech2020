@@ -181,3 +181,7 @@ a {
   border-radius: 50px !important;
   color: #fff !important;
 }
+
+.posts {
+  overflow-y: auto;
+}

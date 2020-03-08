@@ -6,7 +6,7 @@ export default function PostPage() {
 
   return(
     <div>
-      <div className={classes.masonry}>
+      <div className={classes.masonry+' posts'}>
         <div>
         <div className={classes.card} style={{background: 'linear-gradient(#1de2db, #5b7de8)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/035PVSG.jpg)'}}></div>
