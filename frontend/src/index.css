@@ -136,3 +136,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.btn {
+  margin-top: 20px !important;
+}
+
+.input-text {
+  margin-right: 10px !important;
+}
