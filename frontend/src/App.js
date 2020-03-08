@@ -22,9 +22,9 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={HomePage}/>
+          {/* <Route exact path="/" component={HomePage}/> */}
           <Route exact path="/login" component={LoginPage}/>
-          <Route path="/register" component={RegisterPage}/>
+          <Route path="/" component={RegisterPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/loginandregister" component={LoginAndRegister}/>
           <Route path="/userprofile" component={UserProfilePage}/>
@@ -35,34 +35,34 @@ function App() {
 }
 
 
-const HomePage = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo"/>
-      <p>
-        Hello teammates
-      </p>
-      <div>
-        <Link to="/register" underline="none">
-          <Button variant="contained" color="primary">
-            Register
-          </Button>
-        </Link>
+// const HomePage = () => (
+//   <div className="App">
+//     <header className="App-header">
+//       <img src={logo} className="App-logo" alt="logo"/>
+//       <p>
+//         Hello teammates
+//       </p>
+//       <div>
+//         <Link to="/register" underline="none">
+//           <Button variant="contained" color="primary">
+//             Register
+//           </Button>
+//         </Link>
 
-        <Link to="/login" underline="none">
-          <Button variant="contained" color="primary">
-            Login
-          </Button>
-        </Link>
-        <Link to="/loginandregister" underline="none">
-          <Button variant="contained" color="primary">
-            Both
-          </Button>
-        </Link>
-      </div>
-    </header>
-  </div>
-);
+//         <Link to="/login" underline="none">
+//           <Button variant="contained" color="primary">
+//             Login
+//           </Button>
+//         </Link>
+//         <Link to="/loginandregister" underline="none">
+//           <Button variant="contained" color="primary">
+//             Both
+//           </Button>
+//         </Link>
+//       </div>
+//     </header>
+//   </div>
+// );
 
 
 export default App;

@@ -67,6 +67,10 @@ const Login = ({ history }) => {
 
   return (
     <Wrapper>
+      <div>
+        <Button href="/login">Login</Button>
+        <Button href="/">Register</Button>
+      </div>
       <h1 style={{paddingBottom: '8px'}}> Login </h1>
       <LoginComponent onSubmit={handleLogin}>
         <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>
