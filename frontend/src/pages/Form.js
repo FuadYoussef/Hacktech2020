@@ -69,7 +69,7 @@ export default class Form extends Component {
 
   listenMessages() {
     this.state.messageRef
-      .limitToLast(10)
+      .limitToLast(5)
       .on('value', message => {
         if (message.exists()) {
           this.setState({
@@ -103,7 +103,7 @@ export default class Form extends Component {
           className="form__button"
           onClick={this.handleSend.bind(this)}
         >
-          send
+          Send
         </Button>
       </div>
     );

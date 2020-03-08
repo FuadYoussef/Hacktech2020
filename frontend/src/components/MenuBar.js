@@ -23,15 +23,11 @@ const useStyles = makeStyles(theme => ({
 export default function MenuBar(props) {
   const classes = useStyles();
   return(
-      <AppBar position="static">
+      <AppBar style={{background: 'linear-gradient(0.25turn, #6946CB, #0781FF)'}}position="static">
         <Toolbar>
 
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-
           <Typography variant="h6" className={classes.title}>
-            OurAppName
+            MeetMe
           </Typography>
 
 
