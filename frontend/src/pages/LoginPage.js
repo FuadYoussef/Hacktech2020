@@ -62,11 +62,15 @@ const Login = ({ history }) => {
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect push to="/dashboard"/>;
   }
 
   return (
     <Wrapper>
+      <div>
+        <Button href="/login">Login</Button>
+        <Button href="/">Register</Button>
+      </div>
       <h1 style={{paddingBottom: '8px'}}> Login </h1>
       <LoginComponent onSubmit={handleLogin}>
         <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>

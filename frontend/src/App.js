@@ -1,4 +1,5 @@
 import React from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,7 +14,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
-import ProfilePage from "./pages/ProfilePage";
+import LoginAndRegister from "./pages/LoginAndRegisterPage"
 
 
 function App() {
@@ -21,11 +22,10 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={HomePage}/>
+          <Route exact path="/" component={RegisterPage}/>
           <Route path="/login" component={LoginPage}/>
-          <Route path="/register" component={RegisterPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
-          <Route path="/update" component={ProfilePage}/>
+          <Route path="/loginandregister" component={LoginAndRegister}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
@@ -33,33 +33,34 @@ function App() {
 }
 
 
-const HomePage = () => (
-  <div className="App">
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo"/>
-      <p>
-        Hello teammates
-      </p>
-      <div>
-        <Link to="/register">
-          <Button variant="contained" color="primary">
-            Register
-          </Button>
-        </Link>
-        <Link to="/login" underline="none">
-          <Button variant="contained" color="primary">
-            Login
-          </Button>
-        </Link>
-        <Link to="/update" underline="none">
-          <Button variant="contained" color="primary">
-            Update
-          </Button>
-        </Link>
-      </div>
-    </header>
-  </div>
-);
+// const HomePage = () => (
+//   <div className="App">
+//     <header className="App-header">
+//       <img src={logo} className="App-logo" alt="logo"/>
+//       <p>
+//         Hello teammates
+//       </p>
+//       <div>
+//         <Link to="/register" underline="none">
+//           <Button variant="contained" color="primary">
+//             Register
+//           </Button>
+//         </Link>
+
+//         <Link to="/login" underline="none">
+//           <Button variant="contained" color="primary">
+//             Login
+//           </Button>
+//         </Link>
+//         <Link to="/loginandregister" underline="none">
+//           <Button variant="contained" color="primary">
+//             Both
+//           </Button>
+//         </Link>
+//       </div>
+//     </header>
+//   </div>
+// );
 
 
 export default App;

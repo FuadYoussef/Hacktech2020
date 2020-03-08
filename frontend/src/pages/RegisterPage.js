@@ -7,17 +7,35 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 import SuccessPage from './SuccessPage';
+import Button from "@material-ui/core/Button";
 
 const Wrapper = styled.div`
-  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+`;
+
+const LoginComponent = styled.form`
+  padding: 32px;
   background: papayawhip;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center; 
-  width: 100%;
+  height: 30vh;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`
 
+<<<<<<< HEAD
 const Button = styled.button`
   display: inline-block;
   color: palevioletred;
@@ -29,6 +47,8 @@ const Button = styled.button`
   display: block;
 `;
 
+=======
+>>>>>>> aa840bedd7e2095ca8d4ebc064490cd0c6c7028e
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
@@ -49,35 +69,19 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
-      <h1>Sign up</h1>
-      <form onSubmit={handleSignUp}>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="Email" />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" placeholder="Password" />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
+    <Wrapper>
+      <h1 style={{paddingBottom: '8px'}}>Sign Up</h1>
+      <LoginComponent onSubmit={handleSignUp}>
+        <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>
+        <TextField name="password" label="password" id="outlined-basic" variant="outlined"/>
+
+        <ButtonContainer>
+          <Button variant="contained" color="primary" type="submit">Register</Button>
+          <Button variant="contained" color="primary">Login</Button>
+        </ButtonContainer>
+      </LoginComponent>
+    </Wrapper>
   );
 };
 
 export default withRouter(SignUp);
-/*
-export default class RegisterPage extends Component {
-    render() {
-        return(
-          <Wrapper className="base-container">
-            <TextField id="outlined-basic" label="email" variant="outlined"/>
-            <TextField id="outlined-basic" label="username" variant="outlined"/>
-            <TextField id="outlined-basic" label="password" variant="outlined"/>
-            <Button as="a" href="/">Register</Button>
-          </Wrapper>
-        )
-    }
-}
-*/
