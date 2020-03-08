@@ -31,18 +31,7 @@ const UpdateComponent = styled.form`
   height: 30vh;
 `;
 
-const BaseContainer = styled.form`
-  font-size: 1em; 
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; 
-  height: 30vh;
-  font: 'Muli', sans-serif;
-`;
-
-const ButtonContainer = styled.form`
+const ButtonContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -67,20 +56,18 @@ const LoginButton = styled.button`
 const SearchProfile = ({ history }) => {
     const handleSearch = useCallback(
         async event => {
-            console.log("handleUpdate")
             event.preventDefault();
             const {age, gender, race, religion } = event.target.elements;
-            var searchAge = age;
-            var searchGender = gender;
-            var searchRace = race;
-            var searchReligion = religion;
+            var searchAge = age.value;
+            var searchGender = gender.value;
+            var searchRace = race.value;
+            var searchReligion = religion.value;
             var returnedUsers = [];
             var rankedUsers = [];
             var leadsRef = app.database().ref('/users');
             leadsRef.on('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var childData = childSnapshot.val();
-                    //console.log(childSnapshot.val());
                     returnedUsers.push({
                         username: childData.username,
                         age: childData.age,
@@ -92,29 +79,32 @@ const SearchProfile = ({ history }) => {
             });
             for (let i = 0; i < returnedUsers.length; i++){
                 console.log("index " + i);
-                //console.log(returnedUsers[i]);
-                console.log(returnedUsers)
                 rankedUsers.push({
                     username: 'user',
                     score: 0
                 });
-                if (returnedUsers[i].username !== null){
+                if (returnedUsers[i].username !== undefined){
                     rankedUsers[i].username = returnedUsers[i].username;
-                    if (returnedUsers[i].age >= searchAge -5 && returnedUsers[i].age <= searchAge -5) {
+                    if (returnedUsers[i].age <= searchAge+5 && returnedUsers[i].age >= searchAge-5) {
+                      console.log('a')
                         rankedUsers[i].score++;
                     }
                     if (returnedUsers[i].gender === searchGender) {
+                        console.log('b')
                         rankedUsers[i].score++;
                     }
                     if (returnedUsers[i].race === searchRace) {
+                        console.log('c')
                         rankedUsers[i].score++;
                     }
                     if (returnedUsers[i].religion === searchReligion) {
+                        console.log('d')
                         rankedUsers[i].score++;
                     }
                 }
-                console.log(rankedUsers);
+
             }
+            console.log('ranked usrs', rankedUsers);
 
 
         },
