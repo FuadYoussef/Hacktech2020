@@ -8,6 +8,9 @@ import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import Select from "react-dropdown-select";
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
 
 const Wrapper = styled.div`
@@ -45,17 +48,18 @@ const UpdateProfile = ({ history }) => {
     async event => {
       console.log("handleUpdate")
       event.preventDefault();
-      /*
-      const { email, password } = event.target.elements;
+      const { name, age, gender, /*race,*/ religion } = event.target.elements;
       try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-        console.log("works")
+        app.database().ref('users/' + firebase.auth().currentUser.uid).set({
+        	name: name.value,
+        	age: age.value,
+        	gender: gender.value,
+        	//race: race.value,
+        	religion: religion.value
+      	});
       } catch (error) {
         alert(error);
-      }*/
+      }
     },
     [history]
   );
@@ -92,7 +96,7 @@ const races = [
 	  { value: 'South Asian', label: 'South Asian' },
 	  { value: 'Other Asian', label: 'Other Asian' },
 	  { value: 'Arab', label: 'Arab' },
-	  { value: 'Turkic', label: 'Turkicj' },
+	  { value: 'Turkic', label: 'Turkic' },
 	  { value: 'Persian', label: 'Other Asian' },
 	  { value: 'Other Middle Eastern', label: 'Other Middle Eastern' },
 	  { value: 'Hispanic', label: 'Hispanic' },
@@ -110,19 +114,17 @@ const races = [
     <Wrapper>
       <h1 style={{paddingBottom: '8px'}}> Update Your Profile </h1>
       <UpdateComponent onSubmit={handleUpdate}>
-        <TextField name="Name" label="Name" id="outlined-basic" variant="outlined"/>
-        <TextField name="Age" label="Age" id="outlined-basic" variant="outlined"/>
+        <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
+        <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
         Gender:
-        <Select options={genders}/>
+        <Select name= "gender" options={genders}/>
         Race:
-        <ReactMultiSelectCheckboxes options={races} />
+        <ReactMultiSelectCheckboxes name = "race" options={races} />
         Religion:
-        <Select options={religions}/>
+        <Select name = "religion" options={religions}/>
         <Button variant="contained" color="primary" type="submit">
           Update
         </Button>
-        <Link style={{fontSize: '12px'}} to="/"> Forgot your password? </Link>
-
         <div class="horizontal divider">
           </div>
       </UpdateComponent>

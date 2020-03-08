@@ -3,6 +3,9 @@ import TextField from '@material-ui/core/TextField'
 import styled from "styled-components";
 import { withRouter } from "react-router";
 import app from "../base";
+import * as firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 import SuccessPage from './SuccessPage';
 
 const Wrapper = styled.div`
@@ -25,6 +28,7 @@ const Button = styled.button`
   border-radius: 3px;
   display: block;
 `;
+
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
@@ -34,6 +38,11 @@ const SignUp = ({ history }) => {
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
       history.push("/");
+      /*var refData = newRef.push();
+      refData.set({email: email.value});*/
+      app.database().ref('users/' + firebase.auth().currentUser.uid).set({
+        email: email.value
+      });
     } catch (error) {
       alert(error);
     }
