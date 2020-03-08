@@ -5,9 +5,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu"
-import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
-import {Redirect} from "react-router-dom";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +30,9 @@ export default function MenuBar(props) {
             OurAppName
           </Typography>
 
-          <IconButton color="inherit" href="/">
+
+          {/* When we click the exit button we push the landing page onto the browser's history (instead of redirecting) */}
+          <IconButton color="inherit" onClick={() => props.history.push('/')}>
             <ExitToAppIcon/>
           </IconButton>
         </Toolbar>
