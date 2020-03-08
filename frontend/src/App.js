@@ -43,11 +43,12 @@ const HomePage = () => (
         Hello teammates
       </p>
       <div>
-        <Link to="/register">
+        <Link to="/register" underline="none">
           <Button variant="contained" color="primary">
             Register
           </Button>
         </Link>
+
         <Link to="/login" underline="none">
           <Button variant="contained" color="primary">
             Login

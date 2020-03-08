@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
-import SideBar from '../components/SideBar'
+import styled from "styled-components";
+import SideBar from "../components/SideBar";
+import MenuBar from "../components/MenuBar"
+import Button from "@material-ui/core/Button";
+import {withRouter} from "react-router-dom";
 
-export default class DashboardPage extends Component {
+const DashboardContainer = styled.div`
+  display: flex;
+`
+
+const RightSide = styled.div`
+  flex-grow: 1;
+  background: green;
+  max-height: 100vh;
+`
+
+class DashboardPage extends Component {
   render() {
     return(
-      <div>
+      <DashboardContainer>
         <SideBar/>
-      </div>
+        <RightSide>
+          <MenuBar history={this.props.history}/>
+      </RightSide>
+      </DashboardContainer>
     );
   }
 }
+
+export default DashboardPage;
