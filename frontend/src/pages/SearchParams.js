@@ -82,7 +82,7 @@ const SearchProfile = ({ history }) => {
                     var childData = childSnapshot.val();
                     //console.log(childSnapshot.val());
                     returnedUsers.push({
-                        username: childData.usermame,
+                        username: childData.username,
                         age: childData.age,
                         gender: childData.gender,
                         race: childData.race,
@@ -94,12 +94,12 @@ const SearchProfile = ({ history }) => {
                 console.log("index " + i);
                 //console.log(returnedUsers[i]);
                 console.log(returnedUsers)
-                rankedUsers[i] = {
-                    usermame: 'user',
+                rankedUsers.push({
+                    username: 'user',
                     score: 0
-                };
-                if (returnedUsers[i].usermame != null){
-                    rankedUsers[i].usermame = returnedUsers[i].usermame;
+                });
+                if (returnedUsers[i].username !== null){
+                    rankedUsers[i].username = returnedUsers[i].username;
                     if (returnedUsers[i].age >= searchAge -5 && returnedUsers[i].age <= searchAge -5) {
                         rankedUsers[i].score++;
                     }
@@ -114,9 +114,6 @@ const SearchProfile = ({ history }) => {
                     }
                 }
                 console.log(rankedUsers);
-
-
-
             }
 
 
