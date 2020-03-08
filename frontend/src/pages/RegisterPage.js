@@ -8,6 +8,8 @@ import "firebase/auth";
 import "firebase/database";
 import SuccessPage from './SuccessPage';
 import Button from "@material-ui/core/Button";
+import img from "./backgroundImage1.jpg";
+import {Link} from 'react-router-dom'
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,11 +18,12 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background-image: url(${img});
 `;
 
 const LoginComponent = styled.form`
   padding: 32px;
-  background: papayawhip;
+//   background: papayawhip;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,14 +60,15 @@ const SignUp = ({ history }) => {
   return (
     <Wrapper>
       <div>
-        <Button href="/login">Login</Button>
-        <Button href="/">Register</Button>
+        <Button variant="outlined" color="primary" href="/login">Login</Button>
+        <Button variant="outlined" color="primary" href="/">Register</Button>
       </div>
-      <h1 style={{paddingBottom: '8px'}}>Sign Up</h1>
+      <h1 style={{paddingBottom: '8px', paddingTop: '20px'}}>Sign Up</h1>
       <LoginComponent onSubmit={handleSignUp}>
         <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>
         <TextField name="password" label="password" id="outlined-basic" variant="outlined"/>
         <Button variant="contained" color="primary" type="submit">Register</Button>
+        <Link style={{fontSize: '12px'}} to="/login"> Already have an account? </Link>
       </LoginComponent>
     </Wrapper>
   );
