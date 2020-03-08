@@ -48,13 +48,13 @@ const UpdateProfile = ({ history }) => {
     async event => {
       console.log("handleUpdate")
       event.preventDefault();
-      const { name, age, gender, /*race,*/ religion } = event.target.elements;
+      const { name, age, gender, race, religion } = event.target.elements;
       try {
         app.database().ref('users/' + firebase.auth().currentUser.uid).set({
         	name: name.value,
         	age: age.value,
         	gender: gender.value,
-        	//race: race.value,
+        	race: race.value,
         	religion: religion.value
       	});
       } catch (error) {
@@ -105,6 +105,7 @@ const races = [
 	  { value: 'African-American', label: 'African-American' },
 	  { value: 'Other Black', label: 'Other Black' },
 	  { value: 'Amerindian', label: 'Amerindian' },
+	  { value: 'Multi-Racial', label: 'Amerindian' },
 	  { value: 'Prefer not to Say', label: 'Prefer not to Say' }
 	]
 
@@ -119,7 +120,8 @@ const races = [
         Gender:
         <Select name= "gender" options={genders}/>
         Race:
-        <ReactMultiSelectCheckboxes name = "race" options={races} />
+        <Select name = "race" options={races}/>
+        {/*<ReactMultiSelectCheckboxes name = "race" options={races} />*/}
         Religion:
         <Select name = "religion" options={religions}/>
         <Button variant="contained" color="primary" type="submit">
