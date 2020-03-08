@@ -6,6 +6,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from "@material-ui/icons/Menu"
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import CollectionsIcon from '@material-ui/icons/Collections';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -33,6 +36,18 @@ export default function MenuBar(props) {
 
           {/* When we click the exit button we push the landing page onto the browser's history */}
           {/* NOTE: using href will reload the landing page, but this technique is for Single Page Applications (SPA) */}
+          <IconButton color="inherit" onClick={() => props.history.push('/dashboard')}>
+            <DashboardIcon/>
+          </IconButton>
+
+          <IconButton color="inherit" onClick={() => props.history.push('/dashboard/posts')}>
+            <CollectionsIcon/>
+          </IconButton>
+
+          <IconButton color="inherit" onClick={() => props.history.push('/dashboard/addpost')}>
+            <PostAddIcon/>
+          </IconButton>
+
           <IconButton color="inherit" onClick={() => props.history.push('/')}>
             <ExitToAppIcon/>
           </IconButton>
