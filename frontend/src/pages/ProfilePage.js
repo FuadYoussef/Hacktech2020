@@ -13,6 +13,8 @@ import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 
 
 const Wrapper = styled.div`
@@ -21,6 +23,8 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  min-height: 100vh;
+  background: yellow;
 `;
 
 const UpdateComponent = styled.form`
@@ -29,7 +33,7 @@ const UpdateComponent = styled.form`
   flex-direction: column;
   justify-content: space-between;
   align-items: center; 
-  height: 30vh;
+  background: green;
 `;
 
 const BaseContainer = styled.div`
@@ -70,16 +74,17 @@ const UpdateProfile = ({ history }) => {
     async event => {
       console.log("handleUpdate")
       event.preventDefault();
-      const { name, age, gender, /*race,*/ religion } = event.target.elements;
+      const { name, age, gender, race, religion } = event.target.elements;
       console.log('---')
       console.log(event.target.elements)
+      console.log(name.value)
       console.log('---')
       try {
         app.database().ref('users/' + firebase.auth().currentUser.uid).set({
         	name: name.value,
         	age: age.value,
         	gender: gender.value,
-        	//race: race.value,
+        	// race: race.value,
         	religion: religion.value
       	});
       } catch (error) {
@@ -139,28 +144,25 @@ const races = [
     <Wrapper>
       <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
   
-      <UpdateComponent onSubmit={handleUpdate}> 
-        <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
-        <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
+      <UpdateComponent onSubmit={handleUpdate}>
+        <div style={{display: 'flex', flexDirection: 'row'}}>
+          <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
+          <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
 
-        <BaseContainer> Gender:
-        <Select name= "gender" options={genders}/>
-        </BaseContainer>
-        
-        <BaseContainer>Race:
-        <ReactMultiSelectCheckboxes name = "race" options={races} />
-        </BaseContainer>
+          <Select name="gender" options={genders} placeholder="Gender"/>
+        </div>
 
-        <BaseContainer>
-        Religion:
-        <Select name = "religion" options={religions}/>
-        </BaseContainer>
+        <div>
+          <ReactMultiSelectCheckboxes name = "race" options={races} />
 
-        <ButtonContainer>
-        <Button variant="contained" color="primary" type="submit">
-          Update
-        </Button>
-        </ButtonContainer>
+          <Select name = "religion" options={religions}/>
+
+          <ButtonContainer>
+          <Button variant="contained" color="primary" type="submit">
+            Update
+          </Button>
+          </ButtonContainer>
+        </div>
 
         <IconButton color="inherit" onClick={() => history.push('/dashboard')}>
             <ExitToAppIcon/>
