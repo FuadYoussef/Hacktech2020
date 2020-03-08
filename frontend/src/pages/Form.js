@@ -25,7 +25,6 @@ export default class Form extends Component {
           messageRef : app.database().ref().child('conversations/'+conID+'/messages'),
           authenticated : true,
         })
-        // console.log(m)
         this.listenMessages();
       } else {
         console.log("failure");
@@ -44,9 +43,6 @@ export default class Form extends Component {
         })
 
         this.listenMessages()
-      }
-      else {
-        console.log("another updated")
       }
   }
 
@@ -75,14 +71,11 @@ export default class Form extends Component {
       .limitToLast(10)
       .on('value', message => {
         if (message.exists()) {
-          console.log(message.val())
-          console.log("we got some messages")
           this.setState({
             list: Object.values(message.exportVal()),
           });
         }
       })
-    console.log('---')
   }
 
   render() {
