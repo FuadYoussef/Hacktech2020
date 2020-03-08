@@ -31,18 +31,7 @@ const UpdateComponent = styled.form`
   height: 30vh;
 `;
 
-const BaseContainer = styled.form`
-  font-size: 1em; 
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; 
-  height: 30vh;
-  font: 'Muli', sans-serif;
-`;
-
-const ButtonContainer = styled.form`
+const ButtonContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -67,28 +56,57 @@ const LoginButton = styled.button`
 const SearchProfile = ({ history }) => {
     const handleSearch = useCallback(
         async event => {
-            console.log("handleUpdate")
             event.preventDefault();
             const {age, gender, race, religion } = event.target.elements;
-
+            var searchAge = age.value;
+            var searchGender = gender.value;
+            var searchRace = race.value;
+            var searchReligion = religion.value;
             var returnedUsers = [];
+            var rankedUsers = [];
             var leadsRef = app.database().ref('/users');
             leadsRef.on('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var childData = childSnapshot.val();
-                    console.log(childSnapshot.val());
-                    returnedUsers.push(childData)
+                    returnedUsers.push({
+                        username: childData.username,
+                        age: childData.age,
+                        gender: childData.gender,
+                        race: childData.race,
+                        religion: childData.religion
+                    });
                 });
             });
-
-            //var users = app.database().ref().child('users/').orderByKey();
-            console.log(returnedUsers);
-
-            /*for (let i = 0; i < users.length; i++){
-                returnedUsers[i] = {
-
+            for (let i = 0; i < returnedUsers.length; i++){
+                console.log("index " + i);
+                rankedUsers.push({
+                    username: 'user',
+                    score: 0
+                });
+                if (returnedUsers[i].username !== undefined){
+                    rankedUsers[i].username = returnedUsers[i].username;
+                    if (returnedUsers[i].age <= searchAge+5 && returnedUsers[i].age >= searchAge-5) {
+                      console.log('a')
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].gender === searchGender) {
+                        console.log('b')
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].race === searchRace) {
+                        console.log('c')
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].religion === searchReligion) {
+                        console.log('d')
+                        rankedUsers[i].score++;
+                    }
                 }
-            }*/
+
+            }
+            console.log('ranked usrs', rankedUsers);
+
+
         },
         [history]
     );
@@ -141,7 +159,7 @@ const SearchProfile = ({ history }) => {
 
     return (
         <Wrapper>
-            <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
+            <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Who Would You Like to Meet? </h1>
 
             <UpdateComponent onSubmit={handleSearch}>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
