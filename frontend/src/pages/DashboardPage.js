@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import '../index.css';
+
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
 import MenuBar from "../components/MenuBar"
