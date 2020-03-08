@@ -22,7 +22,7 @@ class DashboardPage extends Component {
   render() {
     return(
       <DashboardContainer>
-        <SideBar/>
+        <SideBar history={this.props.history}/>
         <RightSide>
           <MenuBar history={this.props.history}/>
           <Route path="/dashboard/chat" component={ChatPage}/>

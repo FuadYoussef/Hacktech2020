@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import { shadows } from '@material-ui/system';
+import {Redirect} from "react-router-dom";
 
 
 /* Hard coded values, eventually we want to pull this from firebase */
@@ -87,12 +87,20 @@ export default function ListCard(props) {
     overflow: auto;
 `
 
+  const onMarkerClick = () => {
+    props.history.push("/dashboard/chat/colin")
+  };
+
   let listItems = null;
   if (props.listType == "Contact") {              // Generate a ContactItem for each contact
     listItems = contactList.map(contact => (
+      <div onClick={() => onMarkerClick()}>
       <ContactItem name={contact.name} avatar={contact.avatar}
                    lastMessage={contact.lastMessage}
-                   lastMessageTimestamp={contact.lastMessageTimestamp}/>))
+                   lastMessageTimestamp={contact.lastMessageTimestamp}
+      />
+      </div>
+      ))
   } else if (props.listType == "Event") {           // Generate an EventItem for each event
     listItems = eventList.map(event => (
       <EventItem name={event.name} description={event.description} date={event.date}/>))
