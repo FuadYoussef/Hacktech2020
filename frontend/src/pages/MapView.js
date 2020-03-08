@@ -1,70 +1,45 @@
 import React, { Component } from 'react';
-import { loadModules } from 'esri-loader';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-const options = {
-  url: 'https://js.arcgis.com/4.6/'
-};
-
-const styles =  {
-  container: {
-    height: '100vh',
-    width: '100vw'
-  },
-  mapDiv: {
-    padding: 0,
-    margin: 0,
-    height: '100%',
-    width: '100%'
-  },
-}
-
-class MapView extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      status: 'loading'
+export class MapView extends Component {
+    constructor(props) {
+      super(props);
+  
+      this.state = {
+        stores: [{latitude: 37.354107, longitude: -121.955238},
+                {latitude: 47.6062, longitude: -122.3321},
+                {latitude: 37.8715, longitude: -122.2730},
+                {latitude: 34.0522, longitude: -118.2437},
+                {latitude: 27.6648, longitude: -81.5158},
+                {latitude: 47.5524695, longitude: -122.0425407}]
+      }
     }
-  }
-
-  componentDidMount() {
-    loadModules(['esri/Map', 'esri/views/MapView'], options)
-      .then(([Map, MapView]) => {
-        const map = new Map({ basemap: "streets" });
-        const view = new MapView({
-          container: "viewDiv",
-          map,
-          zoom: 15,
-          center: [78.4867, 17.3850]
-        });
-
-        view.then(() => {
-          this.setState({
-            map,
-            view,
-            status: 'loaded'
-          });
-        });
+  
+    displayMarkers = () => {
+      return this.state.stores.map((store, index) => {
+        return <Marker key={index} id={index} position={{
+         lat: store.latitude,
+         lng: store.longitude
+       }}
+       onClick={() => window.alert("Meet Me Here!")} />
       })
-
-  }
-
-  renderMap() {
-    if(this.state.status === 'loading') {
-      return <div>loading</div>;
+    }
+  
+    render() {
+      return (
+          <Map
+            google={this.props.google}
+            zoom={4}
+            style={this.props.mapStyles}
+            initialCenter={{ lat: 37.444, lng: -100.176}}
+          >
+            {this.displayMarkers()}
+            
+          </Map>
+      );
     }
   }
 
-  render() {
-
-    return(
-          <div style={styles.container}>
-            <div id='viewDiv' style={ styles.mapDiv } >
-              {this.renderMap()}
-            </div>
-          </div>
-    )
-  }
-}
-
-export default MapView;
+  export default GoogleApiWrapper({
+    apiKey: 'AIzaSyBMeo91RWYZS_pZ_bzOCJ3eVCUuAFK0y-Y'
+  })(MapView);
