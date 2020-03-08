@@ -27,7 +27,7 @@ h6 {
 }
 
 .Event {
-  overflow: auto;
+  overflow: hidden;
   background-color: transparent;
 }
 
@@ -41,6 +41,9 @@ h6 {
   font-weight: 900
 }
 
+.Contact .jlYRbo {
+  width: 85%;
+}
 .Contact-list .MuiPaper-rounded  {
   color: #fff;
   background-color: transparent;
@@ -63,4 +66,13 @@ h6 {
 
 .MuiTypography-colorTextSecondary {
   color: rgba(225, 255, 255, 0.94) !important;
+}
+
+.MuiDivider-root {
+  border: none;
+  height: 1px;
+  margin: auto !important;
+  width: 80%;
+  flex-shrink: 0;
+  background-color: rgba(16, 16, 16, 0.12);
 }
