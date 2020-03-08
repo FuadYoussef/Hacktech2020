@@ -27,7 +27,7 @@ const contactList = [
   {
     name: 'Barrack Obama',
     avatar: './anyimage.png',
-    lastMessage: 'Happy New Years!',
+    lastMessage: 'I HAVE CORONAVIRUS',
     lastMessageTimestamp: '3 mo'
   },
   {
@@ -41,7 +41,7 @@ const contactList = [
 const eventList = [
   {
     name: 'Corona',
-    description: 'A bad virus attack.',
+    description: 'A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack.A bad virus attack. A bad virus attack.',
     date: '1/1/20',
   },
   {
@@ -73,10 +73,8 @@ export default function ListCard(props) {
   const classes = useStyles();
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
-  const sidebarBackground = props.listType == "Contact" ? 'linear-gradient(#0781FF, #6946CB)' : '#4E2B8B';
   const minHeight = props.listType == "Contact" ? "45%" : "55%";
   const ListBody = styled(Paper)`
-    background: ${sidebarBackground};
     color: #fff;
     padding: 16px 16px 16px 16px;
     display: inline-flex;
@@ -109,7 +107,7 @@ export default function ListCard(props) {
         </Typography>
       </CardHeader>
 
-      <List className={classes.root}>
+      <List className={classes.root+' '+props.listType+'-inner'}>
         {listItems}
       </List>
     </ListBody>
@@ -173,7 +171,7 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
-    <ItemContainer elevation={2}>
+    <ItemContainer  className="Event-text" elevation={2}>
       <ListItemText
         primary={
           <Typography align="center" variant="h6" component="h6">

@@ -12,6 +12,55 @@ code {
     monospace;
 }
 
+h6 {
+  color: #fff;
+}
+
+.Contact {
+  color: #fff;
+  background: linear-gradient(#0781FF, #6946CB);
+}
+
+.Contact .MuiPaper-outlined {
+  color: #fff;
+  background: linear-gradient(#0781FF, #6946CB);
+}
+
 .Event {
   height: 100%;
+  background-color: #4E2B8B;
+}
+
+.Event .MuiPaper-outlined  {
+  color: #fff;
+  background-color: #4E2B8B;
+}
+
+.Contact-list {
+  color: #fff;
+  font-weight: 900
+}
+
+.Contact-list .MuiPaper-rounded  {
+  color: #fff;
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: 900;
+}
+
+.Contact-list .MuiTypography-colorTextSecondary {
+  color: rgba(225, 255, 255, 0.84);
+}
+
+
+.Event-text {
+  background: linear-gradient(#ff3a3aeb, #ff2e2ee0), url(https://i.imgur.com/senEhn5.jpg) center !important;
+  background-size: contain;
+  color: #fff !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.MuiTypography-colorTextSecondary {
+  color: rgba(225, 255, 255, 0.94) !important;
 }
