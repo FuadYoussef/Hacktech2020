@@ -31,7 +31,8 @@ export default function MenuBar(props) {
           </Typography>
 
 
-          {/* When we click the exit button we push the landing page onto the browser's history (instead of redirecting) */}
+          {/* When we click the exit button we push the landing page onto the browser's history */}
+          {/* NOTE: using href will reload the landing page, but this technique is for Single Page Applications (SPA) */}
           <IconButton color="inherit" onClick={() => props.history.push('/')}>
             <ExitToAppIcon/>
           </IconButton>
