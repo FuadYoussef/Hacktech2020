@@ -18,28 +18,28 @@ const contactList = [
   {
     name: 'Colin Peppler',
     userName: 'colin',
-    avatar: '/static/images/avatar/1.jpg',
+    avatar: 'https://i.imgur.com/TJs6euk.png',
     lastMessage: 'Let\'s meetup!',
     lastMessageTimestamp: '5 min'
   },
   {
     name: 'Lee Singer',
     userName: 'leesin',
-    avatar: 'Leesin',
+    avatar: 'https://i.imgur.com/XXfbrRY.png',
     lastMessage: 'byebye',
     lastMessageTimestamp: '10 hr'
   },
   {
     name: 'Barrack Obama',
     userName: 'bobama',
-    avatar: './anyimage.png',
+    avatar: 'https://i.imgur.com/eYRxRnD.png',
     lastMessage: 'I HAVE CORONAVIRUS',
     lastMessageTimestamp: '3 mo'
   },
   {
     name: 'Hannah Montana',
     userName: 'hannahbannana',
-    avatar: './anyimage.png',
+    avatar: 'https://i.imgur.com/EcyyVVI.png',
     lastMessage: 'See you in 20!',
     lastMessageTimestamp: '1 yr'
   },
@@ -187,7 +187,7 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
-      <Button variant="outlined" color="secondary" href="/dashboard/mapview">Location</Button>
+      <a href="/dashboard/mapview">
       <ItemContainer className="Event-text" elevation={3} boxShadow={3}>
         <ListItemText
           primary={
@@ -207,6 +207,7 @@ function EventItem(props) {
           }
         />
       </ItemContainer>
+      </a>
     </div>
   )
 }

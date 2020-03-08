@@ -24,16 +24,17 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background: yellow;
+  background-image: url(https://i.imgur.com/OFDbIno.png);
+  background-size: 60%;
+  background-position: initial;
+  background-repeat: no-repeat;
 `;
 
 const UpdateComponent = styled.form`
   padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: block;
   align-items: center; 
-  background: green;
+  text-align: center;
 `;
 
 
@@ -42,13 +43,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center; 
-  justify-content: space-around;
-  background: pink;
-  width: 100vh;
-  min-width: 100%;
+  display: block;
 `
 
 const UpdateProfile = ({ history }) => {
@@ -81,23 +76,20 @@ const { currentUser } = useContext(AuthContext);
 
   return (
     <Wrapper>
+      <div className="reg">
       <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
   
       <UpdateComponent onSubmit={handleUpdate}>
-        <Row>
-          <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
-          <TextField name="username" label="username" id="outlined-basic" variant="outlined"/>
-          <TextField style={{width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
-          <Select style={{width: '100px'}} name="gender" options={genders} placeholder="Gender"/>
-        </Row>
+          <TextField className="input-text" name="name" label="name" id="outlined-basic" variant="outlined"/>
+          <TextField className="input-text" name="username" label="username" id="outlined-basic" variant="outlined"/>
+          <TextField className="input-text" style={{width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
+          <Select className="select" name="gender" options={genders} placeholder="Gender"/>
 
-        <Row>
-          <Select name="race" options={races} placeholder="Race"/>
-          <Select name = "religion" options={religions}/>
-        </Row>
+          <Select className="select" name="race" options={races} placeholder="Race"/>
+          <Select className="select" name = "religion" options={religions}/>
 
         <ButtonContainer>
-          <Button variant="contained" color="primary" type="submit">
+          <Button className="btn" variant="contained" color="primary" type="submit">
             Update
           </Button>
         </ButtonContainer>
@@ -106,7 +98,7 @@ const { currentUser } = useContext(AuthContext);
             <ExitToAppIcon/>
         </IconButton>
       </UpdateComponent>
-      
+      </div>
     </Wrapper>
   );
 };
