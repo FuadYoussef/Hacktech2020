@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { loadModules } from 'esri-loader';
 
 const options = {
@@ -69,3 +69,4 @@ class MapView extends Component {
 
 export default MapView;
 
+*/

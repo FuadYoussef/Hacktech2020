@@ -70,16 +70,25 @@ const SearchProfile = ({ history }) => {
             console.log("handleUpdate")
             event.preventDefault();
             const {age, gender, race, religion } = event.target.elements;
-            try {
-                app.database().ref('users/' + firebase.auth().currentUser.uid).set({
-                    age: age.value,
-                    gender: gender.value,
-                    race: race.value,
-                    religion: religion.value
+
+            var returnedUsers = [];
+            var leadsRef = app.database().ref('/users');
+            leadsRef.on('value', function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    var childData = childSnapshot.val();
+                    console.log(childSnapshot.val());
+                    returnedUsers.concat(childData)
                 });
-            } catch (error) {
-                alert(error);
-            }
+            });
+
+            //var users = app.database().ref().child('users/').orderByKey();
+            console.log(returnedUsers);
+
+            /*for (let i = 0; i < users.length; i++){
+                returnedUsers[i] = {
+
+                }
+            }*/
         },
         [history]
     );
