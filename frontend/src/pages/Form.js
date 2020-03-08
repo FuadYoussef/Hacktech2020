@@ -45,9 +45,6 @@ export default class Form extends Component {
 
         this.listenMessages()
       }
-      else {
-        console.log("another updated")
-      }
   }
 
   handleChange(event) {

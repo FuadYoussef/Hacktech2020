@@ -9,8 +9,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
-import {Redirect} from "react-router-dom";
-import Button from "@material-ui/core/Button";
 
 
 /* Hard coded values, eventually we want to pull this from firebase */
@@ -31,7 +29,7 @@ const contactList = [
   },
   {
     name: 'Barrack Obama',
-    userName: 'bobama',
+    userName: 'lucy',
     avatar: './anyimage.png',
     lastMessage: 'I HAVE CORONAVIRUS',
     lastMessageTimestamp: '3 mo'
@@ -71,7 +69,7 @@ const CardHeader = styled.div`
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: '25vw',
   },
 }));
 
@@ -88,9 +86,8 @@ export default function ListCard(props) {
     align-items: flex-start;
     border: None;
     flex-direction: column; 
-    min-height: 100%;
-    overflow: auto;
-    min-width: 82%;
+    min-height: ${minHeight};
+    overflow: scroll;
 `
 
   const onMarkerClick = (userName) => {
@@ -186,8 +183,6 @@ const EventBody = styled.div``
 
 function EventItem(props) {
   return (
-    <div className="Events-list">
-      <Button variant="outlined" color="secondary" href="/dashboard/mapview">Location</Button>
       <ItemContainer className="Event-text" elevation={3} boxShadow={3}>
         <ListItemText
           primary={
@@ -207,7 +202,6 @@ function EventItem(props) {
           }
         />
       </ItemContainer>
-    </div>
   )
 }
 

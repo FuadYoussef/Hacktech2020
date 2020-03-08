@@ -5,8 +5,9 @@ export default function PostPage() {
   const classes = useStyles();
 
   return(
-    <div>
+    <div style={{overflow: 'scroll'}}>
       <div className={classes.masonry}>
+        <div>
         <div className={classes.card} style={{background: 'linear-gradient(#1de2db, #5b7de8)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/035PVSG.jpg)'}}></div>
           <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
@@ -28,6 +29,8 @@ export default function PostPage() {
             <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
+        </div>
+        <div>
         <div className={classes.card} style={{background: 'linear-gradient(#fcde8b, #ff716a)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/CYXMhW4.jpg)'}}></div>
           <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -48,6 +51,8 @@ export default function PostPage() {
             <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
+        </div>
+        <div>
         <div className={classes.card} style={{background: 'linear-gradient(#1fc2d6, #553181)'}}>
           <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/VfL149L.jpg)'}}></div>
           <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -73,26 +78,6 @@ export default function PostPage() {
             <div className={classes.cardBtn}>READ MORE</div>
           </a>
         </div>
-        <div className={classes.card}>
-          <div className={classes.cardAvatar}></div>
-          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-            dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
-          <a href="#">
-            <div className={classes.cardBtn}>READ MORE</div>
-          </a>
-        </div>
-        <div className={classes.card} style={{background: 'linear-gradient(#ff4493, #e63784)'}}>
-          <div className={classes.cardAvatar} style={{backgroundImage: 'url(https://i.imgur.com/JtZSmv9.jpg)'}}></div>
-          <p className={classes.cardText}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-            duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam</p>
-          <a href="#">
-            <div className={classes.cardBtn}>READ MORE</div>
-          </a>
         </div>
       </div>
     </div>
@@ -105,21 +90,24 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 360,
   },
   masonry: {
-    columnCount: 4,
+    columnCount: 3,
     columnGap: '1em',
-    overflow: 'hidden',
-    padding: '10px',
+    padding: '32px 32px 0 32px',
+    background: 'transparent',
+    maxHeight: '90vh',
+    display: 'flex',
+    flexDirection: 'row',
+    overflow: 'scroll',
   },
   card: {
     display: 'inline-table',
     // fontFamily: 'Roboto', 'sans-serif',
     textAlign: 'center',
     background: 'linear-gradient(#fe7379, #f5529f)',
-    minHeight: '300px',
-    width: '300px',
+    minHeight: '15vh',
+    width: '20vw',
     borderRadius: '10px',
-    marginLeft: '50px',
-    marginTop: '30px',
+    marginBottom: '10vh'
   },
   cardAvatar: {
     display: 'inline-block',
