@@ -25,6 +25,13 @@ const LoginComponent = styled.form`
   height: 30vh;
 `;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`
+
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
@@ -41,15 +48,15 @@ const SignUp = ({ history }) => {
 
   return (
     <Wrapper>
-      <div>
-        <Button href="/login">Login</Button>
-        <Button href="/">Register</Button>
-      </div>
       <h1 style={{paddingBottom: '8px'}}>Sign Up</h1>
       <LoginComponent onSubmit={handleSignUp}>
         <TextField name="email" label="email" id="outlined-basic" variant="outlined"/>
         <TextField name="password" label="password" id="outlined-basic" variant="outlined"/>
-        <Button variant="contained" color="primary" type="submit">Register</Button>
+
+        <ButtonContainer>
+          <Button variant="contained" color="primary" type="submit">Register</Button>
+          <Button variant="contained" color="primary">Login</Button>
+        </ButtonContainer>
       </LoginComponent>
     </Wrapper>
   );

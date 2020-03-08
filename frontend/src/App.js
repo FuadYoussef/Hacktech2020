@@ -14,7 +14,6 @@ import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
 import LoginAndRegister from "./pages/LoginAndRegisterPage"
-import UserProfilePage from "./pages/UserProfilePage"
 
 
 function App() {
@@ -22,12 +21,10 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Switch>
-          {/* <Route exact path="/" component={HomePage}/> */}
-          <Route exact path="/login" component={LoginPage}/>
-          <Route path="/" component={RegisterPage}/>
+          <Route exact path="/" component={RegisterPage}/>
+          <Route path="/login" component={LoginPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/loginandregister" component={LoginAndRegister}/>
-          <Route path="/userprofile" component={UserProfilePage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
