@@ -6,6 +6,8 @@ import app from "../base.js";
 import { AuthContext } from "../Auth.js";
 import {Link} from 'react-router-dom'
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Select from "react-dropdown-select";
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import * as firebase from "firebase/app";
@@ -19,12 +21,30 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 100vh;
 `;
 
 const UpdateComponent = styled.form`
   padding: 32px;
-  background: papayawhip;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  height: 30vh;
+`;
+
+const BaseContainer = styled.form`
+  font-size: 1em; 
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  height: 30vh;
+  font: 'Muli', sans-serif;
+`;
+
+const ButtonContainer = styled.form`
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -42,6 +62,8 @@ const LoginButton = styled.button`
   border-radius: 3px;
   display: block;
 `;
+
+
 
 const UpdateProfile = ({ history }) => {
   const handleUpdate = useCallback(
@@ -112,22 +134,36 @@ const races = [
 
   return (
     <Wrapper>
-      <h1 style={{paddingBottom: '8px'}}> Update Your Profile </h1>
-      <UpdateComponent onSubmit={handleUpdate}>
+      <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
+  
+      <UpdateComponent onSubmit={handleUpdate}> 
         <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
         <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
-        Gender:
+
+        <BaseContainer> Gender:
         <Select name= "gender" options={genders}/>
-        Race:
+        </BaseContainer>
+        
+        <BaseContainer>Race:
         <ReactMultiSelectCheckboxes name = "race" options={races} />
+        </BaseContainer>
+
+        <BaseContainer>
         Religion:
         <Select name = "religion" options={religions}/>
+        </BaseContainer>
+
+        <ButtonContainer>
         <Button variant="contained" color="primary" type="submit">
           Update
         </Button>
-        <div class="horizontal divider">
-          </div>
+        </ButtonContainer>
+
+        <IconButton color="inherit" onClick={() => history.push('/dashboard')}>
+            <ExitToAppIcon/>
+          </IconButton>
       </UpdateComponent>
+      
     </Wrapper>
   );
 };
