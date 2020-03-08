@@ -12,7 +12,7 @@ constructor(props) {
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      console.log(user.username)
+      console.log(user)
     } else {
       console.log('not signed in')
     }
@@ -40,11 +40,7 @@ constructor(props) {
 
   render() {
     return (
-      <div className="app">
-        <div className="app__list">
-          <Form userName={this.state.displayName} targetUserName={this.state.targetUserName}/>
-        </div>
-      </div>
+        <Form userName={this.state.displayName} targetUserName={this.state.targetUserName}/>
     );
   }
 }

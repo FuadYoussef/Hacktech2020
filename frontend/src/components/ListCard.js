@@ -22,23 +22,23 @@ const contactList = [
   },
   {
     name: 'Lee Singer',
-    userName: 'leesin',
+    userName: 'abbas',
     avatar: 'https://i.imgur.com/XXfbrRY.png',
     lastMessage: 'byebye',
     lastMessageTimestamp: '10 hr'
   },
   {
-    name: 'Barrack Obama',
+    name: 'Babe Ruth',
     userName: 'lucy',
     avatar: 'https://i.imgur.com/eYRxRnD.png',
-    lastMessage: 'I HAVE CORONAVIRUS',
+    lastMessage: 'See u in 20!',
     lastMessageTimestamp: '3 mo'
   },
   {
     name: 'Hannah Montana',
     userName: 'fuad',
     avatar: 'https://i.imgur.com/EcyyVVI.png',
-    lastMessage: 'See you in 20!',
+    lastMessage: 'OFC ur invited!',
     lastMessageTimestamp: '1 yr'
   },
 ]
@@ -87,6 +87,7 @@ export default function ListCard(props) {
     border: None;
     flex-direction: column; 
     min-height: ${minHeight};
+    min-width: 90%;
     overflow: scroll;
 `
 

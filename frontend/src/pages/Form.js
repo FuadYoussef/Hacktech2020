@@ -5,6 +5,7 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 import app from "../base.js";
+import Button from "@material-ui/core/Button";
 export default class Form extends Component {
   constructor(props) {
     super(props);
@@ -80,13 +81,13 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div className="form">
-        <div className="form__message">
+      <div className="form" style={{background: 'transparent', width: '100%', marginRight: '16px'}}>
+        <div style={{width: '70vw'}} className="form__message">
           { this.state.list.map((item, index) =>
             <Message key={index} message={item} />
           )}
         </div>
-        <div className="form__row">
+        <div style={{width: '75vw'}}className="form__row">
           <input
             className="form__input"
             type="text"
@@ -95,12 +96,12 @@ export default class Form extends Component {
             onChange={this.handleChange.bind(this)}
             onKeyPress={this.handleKeyPress.bind(this)}
           />
-          <button
+          <Button
             className="form__button"
             onClick={this.handleSend.bind(this)}
           >
             send
-          </button>
+          </Button>
         </div>
       </div>
     );
