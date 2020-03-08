@@ -187,7 +187,7 @@ const EventBody = styled.div``
 function EventItem(props) {
   return (
     <div className="Events-list">
-      <Button variant="outlined" color="secondary" href="/dashboard/mapview">Location</Button>
+      <a href="/dashboard/mapview">
       <ItemContainer className="Event-text" elevation={3} boxShadow={3}>
         <ListItemText
           primary={
@@ -207,6 +207,7 @@ function EventItem(props) {
           }
         />
       </ItemContainer>
+      </a>
     </div>
   )
 }

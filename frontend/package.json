@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "esri-loader": "^2.13.0",
     "firebase": "^7.10.0",
+    "google-maps-react": "^2.0.2",
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
