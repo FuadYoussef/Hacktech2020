@@ -60,7 +60,8 @@ h6 {
 
 
 .Event-text {
-  background: linear-gradient(#fc8989d9, #ff766cf2), url(https://i.imgur.com/senEhn5.jpg) center !important;
+  background:linear-gradient(135deg, #CE9FFC 0%,#7367F0 100%);
+  /* background: linear-gradient(#fc8989d9, #ff766cf2), url(https://i.imgur.com/senEhn5.jpg) center !important; */
   background-size: contain;
   color: #fff !important;
   /* box-shadow: none !important; */

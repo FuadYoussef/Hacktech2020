@@ -7,6 +7,7 @@ import Route from "react-router-dom/es/Route";
 import ChatPage from "./ChatPage";
 import PostPage from "./PostPage";
 import AddPost from "./AddPost"
+import MapView from "./MapView"
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ class DashboardPage extends Component {
           <Route path="/dashboard/chat" component={ChatPage}/>
           <Route path="/dashboard/posts" component={PostPage}/>
           <Route path="/dashboard/addpost" component={AddPost}/>
+          <Route path="/dashboard/mapview" component={MapView}/>
         </RightSide>
       </DashboardContainer>
     );
