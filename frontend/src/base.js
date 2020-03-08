@@ -1,6 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
-
+import "firebase/database"
 const app = firebase.initializeApp({
   apiKey: "AIzaSyCy1_DvmKHUWa_TvgjXz1hk4w6lHBUjrN8",
   authDomain: "hacktech2020-d69e4.firebaseapp.com",

@@ -3,8 +3,6 @@ import '../index.css';
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
 import MenuBar from "../components/MenuBar"
-import Button from "@material-ui/core/Button";
-import {withRouter} from "react-router-dom";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -23,7 +21,7 @@ class DashboardPage extends Component {
         <SideBar/>
         <RightSide>
           <MenuBar history={this.props.history}/>
-      </RightSide>
+        </RightSide>
       </DashboardContainer>
     );
   }
