@@ -36,16 +36,6 @@ const UpdateComponent = styled.form`
   background: green;
 `;
 
-const BaseContainer = styled.div`
-  font-size: 1em; 
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; 
-  height: 30vh;
-  font: 'Muli', sans-serif;
-`;
 
 const ButtonContainer = styled.div`
   padding: 20px;
@@ -54,17 +44,6 @@ const ButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center; 
   height: 30vh;
-`;
-
-const LoginButton = styled.button`
-  display: inline-block;
-  color: palevioletred;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  display: block;
 `;
 
 
@@ -147,12 +126,12 @@ const races = [
       <UpdateComponent onSubmit={handleUpdate}>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
-          <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
+          <TextField style={{width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
 
           <Select name="gender" options={genders} placeholder="Gender"/>
         </div>
 
-        <div>
+        <div style={{display: 'flex', flexDirection: 'row'}}>
           <ReactMultiSelectCheckboxes name = "race" options={races} />
 
           <Select name = "religion" options={religions}/>
