@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 
 export class MapView extends Component {
     constructor(props) {
@@ -21,7 +21,8 @@ export class MapView extends Component {
          lat: store.latitude,
          lng: store.longitude
        }}
-       onClick={() => window.alert("Meet Me Here!")} />
+      
+       onClick={() => {return this.props.onToggleeOpen}} />
       })
     }
   
@@ -34,7 +35,12 @@ export class MapView extends Component {
             initialCenter={{ lat: 37.444, lng: -100.176}}
           >
             {this.displayMarkers()}
-            
+            <InfoWindow onCloseClick={this.props.onToggleeOpeen}>
+                <div>
+                    {" "}
+                    Controlled zoom: {this.props.zoom}
+                </div>
+            </InfoWindow>
           </Map>
       );
     }

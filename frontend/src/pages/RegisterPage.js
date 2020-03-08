@@ -27,7 +27,6 @@ const Wrapper = styled.div`
 
 const LoginComponent = styled.form`
   padding: 32px;
-//   background: papayawhip;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
