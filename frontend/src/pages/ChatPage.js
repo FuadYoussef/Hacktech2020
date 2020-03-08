@@ -9,7 +9,7 @@ class ChatPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      displayName: 'Colin'
     }
   }
   componentDidMount() {
@@ -22,7 +22,7 @@ class ChatPage extends Component {
     return (
       <div className="app">
         <div className="app__list">
-          <Form user={this.state.user} />
+          <Form userName={this.state.displayName}/>
         </div>
       </div>
     );

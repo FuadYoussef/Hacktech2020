@@ -9,39 +9,44 @@ export default class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: 'Sebastian',
+      userName: props.userName,
       message: '',
       list: [],
+      messageRef: null,
     };
-    firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      var conID = app.auth().currentUser.uid;
-      this.messageRef = app.database().ref().child('conversations/'+conID+'messages');
-      this.listenMessages();
-      console.log(firebase.auth.currentUser.uid);
-    } else {
-      console.log("failure");
-    }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        var conID = app.auth().currentUser.uid;
+        console.log(conID)
+        this.state.messageRef = app.database().ref().child('conversations/'+conID+'/messages');
+        console.log('before')
+        console.log(this.state.messageRef)
+        this.listenMessages();
+      } else {
+        console.log("failure");
+      }
   });
   }
 
-  
+  // componentWillReceiveProps(nextProps) {
+  //   if(nextProps.user) {
+  //     console.log(nextProps.user.displayName)
+  //     this.setState({userName: nextProps.user.displayName});
+  //   }
+  // }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.user) {
-      this.setState({'userName': nextProps.user.displayName});
-    }
-  }
   handleChange(event) {
     this.setState({message: event.target.value});
   }
+
   handleSend() {
     if (this.state.message) {
       var newItem = {
         userName: this.state.userName,
         message: this.state.message,
       }
-      this.messageRef.push(newItem);
+      console.log(newItem)
+      this.state.messageRef.push(newItem);
       this.setState({ message: '' });
     }
   }
@@ -50,12 +55,14 @@ export default class Form extends Component {
     this.handleSend();
   }
   listenMessages() {
-    this.messageRef
+    console.log('***')
+    console.log(this.state.messageRef)
+    this.state.messageRef
       .limitToLast(10)
       .on('value', message => {
-        this.setState({
-          list: Object.values(message.exportVal()),
-        });
+          this.setState({
+            list: Object.values(message.exportVal()),
+          });
       });
   }
   render() {

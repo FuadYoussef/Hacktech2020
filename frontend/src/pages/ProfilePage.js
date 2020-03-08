@@ -32,7 +32,7 @@ const UpdateComponent = styled.form`
   height: 30vh;
 `;
 
-const BaseContainer = styled.form`
+const BaseContainer = styled.div`
   font-size: 1em; 
   padding: 30px;
   display: flex;
@@ -43,7 +43,7 @@ const BaseContainer = styled.form`
   font: 'Muli', sans-serif;
 `;
 
-const ButtonContainer = styled.form`
+const ButtonContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -71,6 +71,9 @@ const UpdateProfile = ({ history }) => {
       console.log("handleUpdate")
       event.preventDefault();
       const { name, age, gender, /*race,*/ religion } = event.target.elements;
+      console.log('---')
+      console.log(event.target.elements)
+      console.log('---')
       try {
         app.database().ref('users/' + firebase.auth().currentUser.uid).set({
         	name: name.value,
