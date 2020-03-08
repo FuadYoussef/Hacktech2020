@@ -77,7 +77,7 @@ const SearchProfile = ({ history }) => {
                 snapshot.forEach(function(childSnapshot) {
                     var childData = childSnapshot.val();
                     console.log(childSnapshot.val());
-                    returnedUsers.concat(childData)
+                    returnedUsers.push(childData)
                 });
             });
 

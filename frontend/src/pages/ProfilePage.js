@@ -56,7 +56,7 @@ const UpdateProfile = ({ history }) => {
     async event => {
       console.log("handleUpdate")
       event.preventDefault();
-      const { name, age, gender, race, religion } = event.target.elements;
+      const { name, username, age, gender, race, religion } = event.target.elements;
       console.log('---')
       console.log(event.target.elements)
       console.log(name.value)
@@ -64,6 +64,7 @@ const UpdateProfile = ({ history }) => {
       try {
         app.database().ref('users/' + firebase.auth().currentUser.uid).set({
         	name: name.value,
+            username: username.value,
         	age: age.value,
         	gender: gender.value,
             race: race.value,
@@ -85,6 +86,7 @@ const { currentUser } = useContext(AuthContext);
       <UpdateComponent onSubmit={handleUpdate}>
         <Row>
           <TextField name="name" label="name" id="outlined-basic" variant="outlined"/>
+          <TextField name="username" label="username" id="outlined-basic" variant="outlined"/>
           <TextField style={{width: '75px'}} name="age" label="age" id="outlined-basic" variant="outlined"/>
           <Select style={{width: '100px'}} name="gender" options={genders} placeholder="Gender"/>
         </Row>
