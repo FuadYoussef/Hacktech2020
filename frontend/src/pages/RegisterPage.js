@@ -10,6 +10,7 @@ import SuccessPage from './SuccessPage';
 import Button from "@material-ui/core/Button";
 import img from "./backgroundImage1.jpg";
 import {Link} from 'react-router-dom'
+import "../index.css"
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +19,9 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-image: url(${img});
+  background-image: url(https://colorlib.com/preview/theme/taxa/img/banner/home-banner.png);
+  background-size: cover;
+  background-position: center;
 `;
 
 const LoginComponent = styled.form`

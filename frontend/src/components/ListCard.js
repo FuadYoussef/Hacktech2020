@@ -89,6 +89,7 @@ export default function ListCard(props) {
     flex-direction: column; 
     min-height: 100%;
     overflow: auto;
+    min-width: 82%;
 `
 
   const onMarkerClick = (userName) => {
