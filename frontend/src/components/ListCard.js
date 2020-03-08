@@ -182,8 +182,7 @@ function EventItem(props) {
         }
         secondary={
           <EventBody>
-            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2"
-                        component="body2">
+            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2">
               {props.description}
             </Typography>
             <Typography align="center" variant="subtitle1">
