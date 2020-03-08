@@ -10,6 +10,7 @@ const html = '<!DOCTYPE html>\n' +
   '    <style>\n' +
   '\n' +
   '    .masonry { \n' +
+  '        padding: 40px;\n' +
   '        column-count: 4;\n' +
   '        column-gap: 1em;\n' +
   '    }\n' +
@@ -91,6 +92,19 @@ const html = '<!DOCTYPE html>\n' +
   '            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \n' +
   '            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \n' +
   '        </p>\n' +
+  '        <a href="#"><div class="card-btn">READ MORE</div></a>\n' +
+  '    </div>\n' +  
+  '    <div class="card" >\n' +
+  '        <div class="card-avatar"></div>\n' +
+  '        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt \n' +
+  '            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \n' +
+  '            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \n' +
+  '        </p>\n' +
+  '        <a href="#"><div class="card-btn">READ MORE</div></a>\n' +
+  '    </div>\n' +
+  '    <div class="card" style="background: linear-gradient(#1de2db, #5b7de8)">\n' +
+  '        <div class="card-avatar" style="background-image: url(\'https://i.imgur.com/035PVSG.jpg\');"></div>\n' +
+  '        <p class="card-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>\n' +
   '        <a href="#"><div class="card-btn">READ MORE</div></a>\n' +
   '    </div>\n' +
   '    <div class="card" style="background: linear-gradient(#ff839d, #f50b9a)">\n' +
