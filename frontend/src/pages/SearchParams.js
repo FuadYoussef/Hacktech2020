@@ -74,7 +74,7 @@ const SearchProfile = ({ history }) => {
                 app.database().ref('users/' + firebase.auth().currentUser.uid).set({
                     age: age.value,
                     gender: gender.value,
-                    //race: race.value,
+                    race: race.value,
                     religion: religion.value
                 });
             } catch (error) {
@@ -135,28 +135,23 @@ const SearchProfile = ({ history }) => {
             <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
 
             <UpdateComponent onSubmit={handleSearch}>
-                You would like to meet someone who is:
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
 
-                <TextField name="age" label="age" id="outlined-basic" variant="outlined"/>
+                    <Select name="gender" options={genders} placeholder="Gender"/>
+                </div>
 
-                <BaseContainer> Gender:
-                    <Select name= "gender" options={genders}/>
-                </BaseContainer>
+                <div>
+                    <Select name="race" options={races} placeholder="Race"/>
 
-                <BaseContainer>Race:
-                    <Select name = "race" options={races}/>
-                </BaseContainer>
-
-                <BaseContainer>
-                    Religion:
                     <Select name = "religion" options={religions}/>
-                </BaseContainer>
 
-                <ButtonContainer>
-                    <Button variant="contained" color="primary" type="submit">
-                        Search
-                    </Button>
-                </ButtonContainer>
+                    <ButtonContainer>
+                        <Button variant="contained" color="primary" type="submit">
+                            Search
+                        </Button>
+                    </ButtonContainer>
+                </div>
 
                 <IconButton color="inherit" onClick={() => history.push('/dashboard')}>
                     <ExitToAppIcon/>
