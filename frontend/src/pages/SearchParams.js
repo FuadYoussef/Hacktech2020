@@ -70,25 +70,56 @@ const SearchProfile = ({ history }) => {
             console.log("handleUpdate")
             event.preventDefault();
             const {age, gender, race, religion } = event.target.elements;
-
+            var searchAge = age;
+            var searchGender = gender;
+            var searchRace = race;
+            var searchReligion = religion;
             var returnedUsers = [];
+            var rankedUsers = [];
             var leadsRef = app.database().ref('/users');
             leadsRef.on('value', function(snapshot) {
                 snapshot.forEach(function(childSnapshot) {
                     var childData = childSnapshot.val();
-                    console.log(childSnapshot.val());
-                    returnedUsers.push(childData)
+                    //console.log(childSnapshot.val());
+                    returnedUsers.push({
+                        username: childData.usermame,
+                        age: childData.age,
+                        gender: childData.gender,
+                        race: childData.race,
+                        religion: childData.religion
+                    });
                 });
             });
-
-            //var users = app.database().ref().child('users/').orderByKey();
-            console.log(returnedUsers);
-
-            /*for (let i = 0; i < users.length; i++){
-                returnedUsers[i] = {
-
+            for (let i = 0; i < returnedUsers.length; i++){
+                console.log("index " + i);
+                //console.log(returnedUsers[i]);
+                console.log(returnedUsers)
+                rankedUsers[i] = {
+                    usermame: 'user',
+                    score: 0
+                };
+                if (returnedUsers[i].usermame != null){
+                    rankedUsers[i].usermame = returnedUsers[i].usermame;
+                    if (returnedUsers[i].age >= searchAge -5 && returnedUsers[i].age <= searchAge -5) {
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].gender === searchGender) {
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].race === searchRace) {
+                        rankedUsers[i].score++;
+                    }
+                    if (returnedUsers[i].religion === searchReligion) {
+                        rankedUsers[i].score++;
+                    }
                 }
-            }*/
+                console.log(rankedUsers);
+
+
+
+            }
+
+
         },
         [history]
     );
@@ -141,7 +172,7 @@ const SearchProfile = ({ history }) => {
 
     return (
         <Wrapper>
-            <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Update Your Profile </h1>
+            <h1 style={{paddingBottom: '8px' , paddingTop:'2.5em', font: '1.5em'}}> Who Would You Like to Meet? </h1>
 
             <UpdateComponent onSubmit={handleSearch}>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
