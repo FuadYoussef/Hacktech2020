@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Login from "./LoginPage"
 import Register from "./RegisterPage"
 import "./loginStyle.scss"
+import Button from "@material-ui/core/Button";
 
 class LoginAndRegister extends Component {
     constructor(props) {
@@ -35,15 +36,15 @@ class LoginAndRegister extends Component {
             <div className="LoginAndRegister">
                 <div className="login">
                     <div className="container">
-                        {isLoginActive && <Login/>}
                         {!isLoginActive && <Register/>}
                     </div>
-                    <RightSide
-                        current={current}
-                        currentActive={currentActive}
-                        containerRef={ref => (this.rightSide = ref)}
-                        onClick={this.changeState.bind(this)}
-                    />
+                    {/*<RightSide*/}
+                    {/*    current={current}*/}
+                    {/*    currentActive={currentActive}*/}
+                    {/*    containerRef={ref => (this.rightSide = ref)}*/}
+                    {/*    onClick={this.changeState.bind(this)}*/}
+                    {/*/>*/}
+                      <Button href="/login">looooooogin</Button>
                 </div>
             </div>
         );

@@ -14,7 +14,6 @@ import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
 import LoginAndRegister from "./pages/LoginAndRegisterPage"
-import UserProfilePage from "./pages/UserProfilePage"
 
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
           <Route path="/register" component={RegisterPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/loginandregister" component={LoginAndRegister}/>
-          <Route path="/userprofile" component={UserProfilePage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
