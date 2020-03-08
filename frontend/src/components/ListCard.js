@@ -78,7 +78,7 @@ export default function ListCard(props) {
   const classes = useStyles();
 
   /* Had to put this within this function because we have a conditional variable relating to props (maxHeight) */
-  const minHeight = props.listType == "Contact" ? "45%" : "55%";
+  const minHeight = props.listType == "Contact" ? "40%" : "55%";
   const ListBody = styled.div`
     color: #fff;
     padding: 16px 16px 0 16px;
