@@ -16,24 +16,28 @@ import {Redirect} from "react-router-dom";
 const contactList = [
   {
     name: 'Colin Peppler',
+    userName: 'colin',
     avatar: '/static/images/avatar/1.jpg',
     lastMessage: 'Let\'s meetup!',
     lastMessageTimestamp: '5 min'
   },
   {
     name: 'Lee Singer',
+    userName: 'leesin',
     avatar: 'Leesin',
     lastMessage: 'byebye',
     lastMessageTimestamp: '10 hr'
   },
   {
     name: 'Barrack Obama',
+    userName: 'bobama',
     avatar: './anyimage.png',
     lastMessage: 'I HAVE CORONAVIRUS',
     lastMessageTimestamp: '3 mo'
   },
   {
     name: 'Hannah Montana',
+    userName: 'hannahbannana',
     avatar: './anyimage.png',
     lastMessage: 'See you in 20!',
     lastMessageTimestamp: '1 yr'
@@ -87,14 +91,14 @@ export default function ListCard(props) {
     overflow: auto;
 `
 
-  const onMarkerClick = () => {
-    props.history.push("/dashboard/chat/colin")
+  const onMarkerClick = (userName) => {
+    props.history.push("/dashboard/chat/" + userName)
   };
 
   let listItems = null;
   if (props.listType == "Contact") {              // Generate a ContactItem for each contact
     listItems = contactList.map(contact => (
-      <div onClick={() => onMarkerClick()}>
+      <div onClick={() => onMarkerClick(contact.userName)}>
       <ContactItem name={contact.name} avatar={contact.avatar}
                    lastMessage={contact.lastMessage}
                    lastMessageTimestamp={contact.lastMessageTimestamp}

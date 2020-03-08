@@ -8,8 +8,9 @@ import app from "../base.js";
 class ChatPage extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      displayName: 'Colin'
+      displayName: props.match.params.userName.replace(':', '')
     }
   }
   componentDidMount() {
@@ -19,6 +20,7 @@ class ChatPage extends Component {
   }
   
   render() {
+    console.log(this.state.displayName)
     return (
       <div className="app">
         <div className="app__list">

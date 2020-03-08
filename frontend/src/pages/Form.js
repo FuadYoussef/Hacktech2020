@@ -13,12 +13,14 @@ export default class Form extends Component {
       message: '',
       list: [],
       messageRef: null,
+      authenticated: false,
     };
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var conID = app.auth().currentUser.uid;
         console.log(conID)
         this.state.messageRef = app.database().ref().child('conversations/'+conID+'/messages');
+        this.state.authenticated = true
         console.log('before')
         console.log(this.state.messageRef)
         this.listenMessages();
@@ -28,19 +30,12 @@ export default class Form extends Component {
   });
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if(nextProps.user) {
-  //     console.log(nextProps.user.displayName)
-  //     this.setState({userName: nextProps.user.displayName});
-  //   }
-  // }
-
   handleChange(event) {
     this.setState({message: event.target.value});
   }
 
   handleSend() {
-    if (this.state.message) {
+    if (this.state.authenticated && this.state.message) {
       var newItem = {
         userName: this.state.userName,
         message: this.state.message,
@@ -60,9 +55,11 @@ export default class Form extends Component {
     this.state.messageRef
       .limitToLast(10)
       .on('value', message => {
+        if (message.exists()) {
           this.setState({
             list: Object.values(message.exportVal()),
           });
+        }
       });
   }
   render() {
