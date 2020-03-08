@@ -13,6 +13,8 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import {AuthProvider} from "./Auth"
 import DashboardPage from "./pages/DashboardPage";
+import LoginAndRegister from "./pages/LoginAndRegisterPage"
+import UserProfilePage from "./pages/UserProfilePage"
 
 
 function App() {
@@ -21,9 +23,11 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage}/>
-          <Route path="/login" component={LoginPage}/>
+          <Route exact path="/login" component={LoginPage}/>
           <Route path="/register" component={RegisterPage}/>
           <Route path="/dashboard" component={DashboardPage}/>
+          <Route path="/loginandregister" component={LoginAndRegister}/>
+          <Route path="/userprofile" component={UserProfilePage}/>
         </Switch>
       </BrowserRouter>
     </AuthProvider>
@@ -47,6 +51,11 @@ const HomePage = () => (
         <Link to="/login" underline="none">
           <Button variant="contained" color="primary">
             Login
+          </Button>
+        </Link>
+        <Link to="/loginandregister" underline="none">
+          <Button variant="contained" color="primary">
+            Both
           </Button>
         </Link>
       </div>
