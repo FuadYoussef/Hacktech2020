@@ -10,6 +10,7 @@ export default class Form extends Component {
     super(props);
     this.state = {
       userName: props.userName,
+      targetUserName: props.targetUserName,
       message: '',
       list: [],
       messageRef: null,
@@ -17,17 +18,30 @@ export default class Form extends Component {
     };
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        var conID = app.auth().currentUser.uid;
-        console.log(conID)
+        // var conID = app.auth().currentUser.uid;
+        /* We need to make sure to update this whenever we clink on a new link */
+        var conID = letterFrequency(this.state.userName, this.state.targetUserName)
+        console.log('changed convoID', conID)
         this.state.messageRef = app.database().ref().child('conversations/'+conID+'/messages');
         this.state.authenticated = true
-        console.log('before')
-        console.log(this.state.messageRef)
         this.listenMessages();
       } else {
         console.log("failure");
       }
   });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevProps.targetUserName !== this.props.targetUserName) {
+        /* We need to make sure to update this whenever we clink on a new link */
+        var conID = letterFrequency(this.state.userName, this.state.targetUserName)
+        console.log('changed convoID', conID)
+        this.setState({
+          messageRef: app.database().ref().child('conversations/' + conID + '/messages'),
+          list: []
+        })
+        this.listenMessages()
+      }
   }
 
   handleChange(event) {
@@ -40,7 +54,6 @@ export default class Form extends Component {
         userName: this.state.userName,
         message: this.state.message,
       }
-      console.log(newItem)
       this.state.messageRef.push(newItem);
       this.setState({ message: '' });
     }
@@ -50,7 +63,7 @@ export default class Form extends Component {
     this.handleSend();
   }
   listenMessages() {
-    console.log('***')
+    console.log('LISTEN MESSAGES')
     console.log(this.state.messageRef)
     this.state.messageRef
       .limitToLast(10)
@@ -89,4 +102,32 @@ export default class Form extends Component {
       </div>
     );
   }
+}
+
+/* HACKY code to normalize our conversations */
+function letterFrequency(text1, text2){
+  let text = text1 + text2
+  console.log(text1, text2, text)
+  text.replace(/[\W_]+/g," ");
+  var count = {};
+  var ch = 'a'
+  for (let i = 0; i < 26; i++) {
+    count[ch] = 0
+    ch = String.fromCharCode(ch.charCodeAt(0) + 1);
+  }
+
+  text.split('').forEach(function(s) {
+    count[s] = count[s]+1;
+  });
+
+  let res = ''
+  ch = 'a'
+  for (let i = 0; i < 26; i++) {
+    let occ = count[ch]
+    res += ch + occ
+    if (i < 25)
+      res += '+'
+    ch = String.fromCharCode(ch.charCodeAt(0) + 1);
+  }
+  return res
 }

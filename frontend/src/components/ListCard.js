@@ -92,11 +92,13 @@ export default function ListCard(props) {
 `
 
   const onMarkerClick = (userName) => {
-    props.history.push("/dashboard/chat/" + userName)
+    // A hack so userName is properly sent
+    console.log('fullsend:', userName)
+    props.history.push({pathname: "/dashboard/chat/" + userName, state: { detail: userName }})
   };
 
   let listItems = null;
-  if (props.listType == "Contact") {              // Generate a ContactItem for each contact
+  if (props.listType == "Contact") {                // Generate a ContactItem for each contact
     listItems = contactList.map(contact => (
       <div onClick={() => onMarkerClick(contact.userName)}>
       <ContactItem name={contact.name} avatar={contact.avatar}

@@ -26,7 +26,7 @@ class DashboardPage extends Component {
         <SideBar history={this.props.history}/>
         <RightSide>
           <MenuBar history={this.props.history}/>
-          <Route path="/dashboard/chat/:userName" component={ChatPage}/>
+          <Route exact path="/dashboard/chat/:userName" component={ChatPage}/>
           <Route path="/dashboard/posts" component={PostPage}/>
           <Route path="/dashboard/addpost" component={AddPost}/>
           <Route path="/dashboard/mapview" component={MapView}/>
