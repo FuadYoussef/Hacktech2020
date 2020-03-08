@@ -38,7 +38,7 @@ const contactList = [
   },
   {
     name: 'Hannah Montana',
-    userName: 'hannahbannana',
+    userName: 'fuad',
     avatar: 'https://i.imgur.com/EcyyVVI.png',
     lastMessage: 'See you in 20!',
     lastMessageTimestamp: '1 yr'
