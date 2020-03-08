@@ -101,7 +101,7 @@ export default function ListCard(props) {
   return (
     <ListBody square variant="outlined">
       <CardHeader>
-        <Typography variant="h6" component="h6">
+        <Typography variant="h6">
           {props.headerTitle}
         </Typography>
       </CardHeader>
@@ -175,8 +175,7 @@ function EventItem(props) {
         }
         secondary={
           <EventBody>
-            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2"
-                        component="body2">
+            <Typography style={{margin: '0 8px 8px 8px'}} display="block" align="center" variant="body2">
               {props.description}
             </Typography>
             <Typography align="center" variant="subtitle1">
