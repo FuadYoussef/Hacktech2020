@@ -45,8 +45,8 @@ const contactList = [
 
 const eventList = [
   {
-    name: 'Corona',
-    description: 'A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack. A bad virus attack.A bad virus attack. A bad virus attack.',
+    name: 'COVID-19',
+    description: 'If a COVID-19 outbreak happens in your community, it could last for a long time. (An outbreak is when a large number of people suddenly get sick.) Depending on how severe the outbreak is, public health officials may recommend community actions to reduce people’s risk of being exposed to COVID-19. These actions can slow the spread and reduce the impact of disease.',
     date: '1/1/20',
   },
   {
