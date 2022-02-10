@@ -11,7 +11,7 @@
     "esri-loader": "^2.13.0",
     "firebase": "^7.10.0",
     "google-maps-react": "^2.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-dropdown-select": "^4.1.1",
